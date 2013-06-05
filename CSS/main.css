@@ -1,0 +1,63 @@
+@font-face
+{
+font-family: Font;
+src: url('../Fonts/font.ttf'); /* IE9+ */
+}
+@font-face
+{
+font-family: WhiteboardFont;
+src: url('../Fonts/ComingSoon.ttf'); /* IE9+ */
+}
+body{
+	font-family: Font;
+	background: rgba(30,30,30,1);
+	color: white;
+}
+#whiteboard{
+	background: url('../Images/mesh.png');
+	width: 90%;
+	height: 110%;
+	margin-top: -12px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px 5px 5px 5px;
+	border: rgba(255,255,255,0.7) 2px solid;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+h1{
+	font-family: WhiteboardFont;
+	font-size: 70px;
+}
+#login{
+	transition: all 200ms;
+	-webkit-transition: all 200ms;
+	-moz-transition: all 200ms;
+	-o-transition: all 200ms;
+	background: white;
+	color: black;
+	border-radius: 10px;
+	position: absolute;
+	top: 25%;
+	width: 250px;
+	height: 250px;
+	padding: 10px 10px 10px 10px;
+}
+input{
+	float: right;
+	width: 160px;
+	margin-right: 2px;
+
+}
+#submit{
+	width: 90px;
+}
+.LoggedinContent{
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+	display: block;
+}
