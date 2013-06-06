@@ -1,5 +1,17 @@
+<html>
+<head>
+<title><?php echo "IT Extended Diploma Level 3 - Whiteboard";?></title>
+<link href="CSS/course.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+</head>
+<body>
+<div id="content">
+    <h2 align="center"> IT Extended Diploma Level 3</h2>
 <?php 
-
+if (isset($_SESSION))
+{
+    session_destroy();
+}
     // First we execute our common code to connection to the database and start the session 
     require("common.php"); 
      
@@ -134,10 +146,24 @@
         { 
             dieError($ex);
         }
-         
+        
+        $sessiondetails = $query_params;
+        unset($row['salt']); 
+        unset($row['password']);
+
+
+
+        $username = $_POST['username'];
+        $id = getID($db, $_POST['email']);
+        $email = $_POST['email'];
+
+        $_SESSION['user']['username'] = $username;
+        $_SESSION['user']['id'] = $id;
+        $_SESSION['user']['email'] = $email;
+        
         // This redirects the user back to the login page after they register 
-        header("Location: index.php"); 
-        die("Redirecting to index.php"); 
+        header("Location: course.php"); 
+        die("Redirecting to course.php"); 
     } 
      
 ?> 
@@ -154,3 +180,8 @@
     <br /><br /> 
     <input type="submit" value="Register" /> 
 </form>
+
+</div>
+<br/>
+</body>
+</html>
