@@ -32,6 +32,7 @@ function load(){
 		}
 		temp.innerHTML = "<div class='unitgrade' id='" + scorefinal + "'>" + s + "</div>" + temp.innerHTML;
 		temp.setAttribute('onclick', 'expand(' + i + ',true)');
+		IDPanelPlacement();
 	}
 }
 function expand(id, operation){
