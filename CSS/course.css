@@ -20,7 +20,6 @@ body{
 	background: white;
 	margin-left: auto;
 	margin-right: auto;
-	height: 500px;
 	min-height: 600px;
 	padding: 50px 50px 50px 50px;
 }
@@ -32,24 +31,26 @@ body{
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	background: #f7f7f7; /* Old browsers */
-	background: -moz-linear-gradient(top,  #f7f7f7 0%, #dddddd 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#dddddd)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #f7f7f7 0%,#dddddd 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #f7f7f7 0%,#dddddd 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #f7f7f7 0%,#dddddd 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #f7f7f7 0%,#dddddd 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+	background: #eaeaea; /* Old browsers */
+	background: -moz-linear-gradient(top,  #fcfcfc 0%, #eaeaea 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#eaeaea)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fcfcfc 0%,#eaeaea 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fcfcfc 0%,#eaeaea 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fcfcfc 0%,#eaeaea 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #fcfcfc 0%,#eaeaea 100%); /* W3C */
 	margin-left: auto;
 	margin-right: auto;
-	width: 70%;
-	height: 40px;
 	margin-top: 40px;
 	padding: 10px 10px 10px 10px;
 	overflow: hidden;
+	font-size: 12px;
 	border-radius: 5px;
+	box-shadow: 0px 0px 2px black;
+	width: 70%;
+	height: 40px;
 }
 #expandtitle{
+	font-size: 20px;
 	margin-top: 7px;
 	cursor: pointer;
 }
@@ -124,14 +125,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b54848', end
 	cursor: pointer;
 }
 a:link, a:visited{
-	color: red;
+	color: FC8D0F;
 	text-decoration: none;
 }
 a:hover{
 	text-decoration: underline;
 }
-#IDPanel a:link, #IDPanel a:Hover{
-	text-decoration: none;
+#IDPanel a:link{
 	color: white;
-}cursor: pointer;
+}
+#IDPanel a:visited{
+	color: white;
+}
+.summary{
+    font-size: 75%;
+    margin-left:  auto;
+    margin-right: auto;
+    width: 60%;
+    min-height: 100px;
+    padding: 10px 10px 10px 10px;
 }

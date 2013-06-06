@@ -48,11 +48,11 @@ function expand(id, operation){
 </head>
 <body onload="load()">
 	<div id="IDPanel"> <?php echo ucfirst(strtolower(htmlentities($_SESSION['user']['username'], ENT_QUOTES, "UTF-8"))); ?> 
-		<li>Tracking Sheet</li>
-		<li><a href="">Email</a></li>
-		<li><a href="">Other Links</a></li>
-		<li><a href="">Change Password</a></li>
-		<li><a href="">My Profile</a></li>
+		<li><a href="https://docs.google.com/spreadsheet/ccc?key=0Ar405A90uLjQdHpBU210ZmVoNXVZZ1lMZzZtYmg2NkE#gid=18">Tracking Sheet</a></li>
+		<li><a href="https://adfs.strode-college.ac.uk/CookieAuth.dll?GetLogon?curl=Z2FadfsZ2FlsZ2FZ3FwaZ3Dwsignin1.0Z26wtrealmZ3DurnZ3AfederationZ3AMicrosoftOnlineZ26wctxZ3DwaZ253Dwsignin1.0Z2526rpsnvZ253D2Z2526ctZ253D1370532248Z2526rverZ253D6.1.6206.0Z2526wpZ253DMBI_KEYZ2526wreplyZ253DhttpsZ3AZ25252FZ25252Famxprd0112.outlook.comZ25252FowaZ25252FZ2526idZ253D260563Z2526whrZ253Dstudent.strode-college.ac.ukZ2526CBCXTZ253Dout&reason=0&formdir=6">Email</a></li>
+		<li><a href="http://elib.strode-college.ac.uk">Other Links</a></li>
+		<li><a href="Member_Profile.php?ref=cpassword">Change Password</a></li>
+		<li><a href="Member_Profile.php?ref=home">My Profile</a></li>
 		<li><a href="log-out.php">Log-out</a></li>
 	</div>
 <div id="content">
@@ -61,7 +61,7 @@ function expand(id, operation){
 		<p> Assignments</p>
 		<p> Upload Area</p>
 		<p class="upload"> upload area 1</p>
-		<p> <a href="">More information on this course.</a></p>
+		<p> <a href="course_view.php?ref=IT+Extended+Diploma+Level+3">More information on this course.</a></p>
 	</div>
 	<div class="expand"  id="Unit 6 - Computer Systems" score="P">
 		<p> Assignments</p>
@@ -88,5 +88,6 @@ function expand(id, operation){
 		<p> <a href="">More information on this course.</a></p>
 	</div>
 </div>
+<br/>
 </body>
 </html>
