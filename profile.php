@@ -18,7 +18,7 @@ include 'common.php';
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
 <script src="JS/functions.js"></script>
 </head>
-<body onload="loadafterlogin()" onresize="IPPanelPlacement()">
+<body onload="loadafterlogin()" onresize="IDPanelPlacement()">
 <?php include'header.php';?>
 <div id="content">
 	<h2 align="center"> IT Extended Diploma Level 3</h2>
