@@ -1,21 +1,57 @@
-<?php 
-
-    // First we execute our common code to connection to the database and start the session 
-    require("common.php"); 
-     
-    // At the top of the page we check to see whether the user is logged in or not 
+<?php
+include 'common.php';
     if(empty($_SESSION['user'])) 
     { 
         // If they are not, we redirect them to the login page. 
-        header("Location: login.php"); 
+        header("Location: index.php"); 
          
         // Remember that this die statement is absolutely critical.  Without it, 
         // people can view your members-only content without logging in. 
-        die("Redirecting to login.php"); 
+        die("Redirecting to login.html"); 
     } 
-     
-    // Everything below this point in the file is secured by the login system 
+?>
 
+<html>
+<head>
+<title><?php echo "IT Extended Diploma Level 3 - Whiteboard";?></title>
+<link href="CSS/course.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+<script>
+function load(){
+	for(var i = 0; i < document.getElementsByClassName('expand').length; i++){
+		temp = document.getElementsByClassName('expand').item(i);
+		temp.innerHTML = "<h3 id='expandtitle' align='center'>" + temp.id + "</h3>" + temp.innerHTML;
+		var s = temp.getAttribute('score');
+		var scorefinal = "unitu";
+		if(s != "U"){
+			scorefinal = "unitp";
+			if(s == null){
+				s = "U";
+				scorefinal = "unitu";
+			}
+		}
+		temp.innerHTML = "<div class='unitgrade' id='" + scorefinal + "'>" + s + "</div>" + temp.innerHTML;
+		temp.setAttribute('onclick', 'expand(' + i + ',true)');
+	}
+}
+function expand(id, operation){
+	if (operation == false){
+		document.getElementsByClassName('expand').item(id).style.height = "40px";
+		document.getElementsByClassName('expand').item(id).setAttribute('onclick', 'expand(' + id + ',true)');
+	}
+	else{
+		document.getElementsByClassName('expand').item(id).style.height = "auto";
+		document.getElementsByClassName('expand').item(id).setAttribute('onclick', 'expand(' + id + ',false)');
+	}
+}
+</script>
+</head>
+<body onload="load()">
+<?php include'header.php';?>
+<div id="content">
+	<h2 align="center"> IT Extended Diploma Level 3</h2>
+
+<?php 
     $query = " 
         SELECT 
             id, 
@@ -60,4 +96,9 @@
         </tr> 
     <?php endforeach; ?> 
 </table> 
-<a href="private.php">Go Back</a><br />
+<a href="course.php">Go Back</a><br />
+
+</div>
+<br/>
+</body>
+</html>
