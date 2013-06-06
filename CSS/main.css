@@ -61,7 +61,7 @@ input{
 	-o-transition: all 1s;
 	display: block;
 }
-a:link{
+a:link, a:visited{
 	color: #135192;
 	text-decoration: none;
 }
