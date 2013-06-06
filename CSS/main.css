@@ -13,7 +13,7 @@ body{
 	background: rgba(30,30,30,1);
 	color: white;
 }
-#whiteboard{
+#mainbackground{
 	background: url('../Images/mesh.png');
 	width: 90%;
 	height: 110%;
@@ -31,7 +31,7 @@ h1{
 	font-family: WhiteboardFont;
 	font-size: 70px;
 }
-#login{
+#whiteboard{
 	transition: all 200ms;
 	-webkit-transition: all 200ms;
 	-moz-transition: all 200ms;
@@ -64,4 +64,18 @@ input{
 a:link, a:visited{
 	color: #135192;
 	text-decoration: none;
+}
+#footnote{
+	font-size: 9px; color: rgba(90,90,90,0.5); margin-top: 4px; width: 235px; margin-left: auto; margin-right: auto;
+}
+#footnote p{
+	float: left;
+	margin: 0px 0px 0px 0px;
+	font-size: 9px;
+}
+#link:hover{
+	cursor: pointer;
+}
+#link{
+	color: #135192;
 }
