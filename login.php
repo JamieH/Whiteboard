@@ -73,11 +73,12 @@
         // If the user logged in successfully, then we send them to the private members-only page 
         // Otherwise, we display a login failed message and show the login form again 
         if($login_ok) 
-        { 
+        {
+            echo "this is all ok";
             // Here I am preparing to store the $row array into the $_SESSION by 
             // removing the salt and password values from it.  Although $_SESSION is 
             // stored on the server-side, there is no reason to store sensitive values 
-            // in it unless you have to.  Thus, it is best practice to remove these 
+            // in it unless you have to.  Thus, it is best practice to remove these
             // sensitive values first. 
             unset($row['salt']); 
             unset($row['password']); 
@@ -87,7 +88,7 @@
             // or not the user is logged in.  We can also use it to retrieve 
             // the user's details. 
             $_SESSION['user'] = $row; 
-             
+
             print ("true");
         } 
         else 
