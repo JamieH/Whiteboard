@@ -161,34 +161,6 @@
 	<link href="CSS/main.css" rel="stylesheet" type="text/css" />
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
 	<script src="JS/functions.js"></script>
-    <script>
-        $('#git').cycle({
-            fx: "scrollLeft",
-            next: "#git",
-            delay: -3000, 
-        });
-    </script>
-    <style>
-        #git{
-           background: #eaeaea; /* Old browsers */
-    background: -moz-linear-gradient(top,  #fcfcfc 0%, #eaeaea 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(100%,#eaeaea)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #fcfcfc 0%,#eaeaea 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #fcfcfc 0%,#eaeaea 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #fcfcfc 0%,#eaeaea 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #fcfcfc 0%,#eaeaea 100%); /* W3C */r: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfb50c39', endColorstr='#b8a50404',GradientType=0 ); /* IE6-9 */
-
-width: 60%;
-height: 40px;
-font-size: 17px;
-position: absolute;
-bottom: 0px;
-left: 20%;
-border-top-right-radius: 20px;
-border-top-left-radius: 20px;
-color: white;
-        }
-    </style>
 	</head>
 	<body onresize="loginload()" onload="loginload()">
 		<div id="mainbackground">
@@ -216,12 +188,5 @@ color: white;
 			</div>
 		</div>
 		</div>
-        <div id="git">
-            <?php
-                for($i=1; $i<4; $i++){
-                    echo "<p align='center'>" . shell_exec("git log -" . $i " --pretty=format:'%h - %s (%ci)' --abbrev-commit") . "</p>";
-                }
-            ?>
-        </div>
 	</body>
 </html>
