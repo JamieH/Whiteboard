@@ -11,55 +11,9 @@
 	<head><title>Whiteboard | Home</title>
 	<link href="CSS/main.css" rel="stylesheet" type="text/css" />
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
-	<script>
-		function Login(){
-			var valueUsername = $("#username").val()
-			var valuePassword = $("#password").val()
-			document.getElementById('footnote').innerHTML = "Logging In.";
-			
-			$.post('login.php', { username: valueUsername, password: valuePassword }).done(function(data)
-			{
-				console.log(data);
-
-				if(data.indexOf("true") !== -1)
-				{
-					document.getElementById('footnote').innerHTML = "Logged In.";
-					document.getElementById('login').style.opacity = 0;
-					document.getElementsByTagName('h1').item(0).opacity = 0;
-					setTimeout(function() 
-					{
-						window.location = "course.php";
-					}, 1000);
-				}
-
-
-				setTimeout(function() {
-					var o = document.getElementById('login');
-					o.style.left = window.innerWidth / 2 - 125 + 10;
-					setTimeout(function() {
-						o.style.left = window.innerWidth / 2 - 125 - 10;
-						setTimeout(function() {
-							o.style.left = window.innerWidth / 2 - 125;
-						}, 220);
-					document.getElementById('footnote').innerHTML = "Login Failed.";
-					document.getElementById('footnote').style.color = 'red';
-					setTimeout(function() {
-						document.getElementById('footnote').innerHTML = "Developed by Jamie Hankins & Matthew James";
-						document.getElementById('footnote').style.color = 'rgba(90,90,90,0.5)';
-						}, 1500);
-					}, 220);
-				}, 2000);
-				
-			});
-			return false;
-	}
-	function load(){
-		var o = document.getElementById('login');
-		o.style.left = window.innerWidth / 2 - 125;
-	}
-	</script>
+	<script src="JS/functions.js"></script>
 	</head>
-	<body onresize="load()" onload="load()">
+	<body onresize="loginload()" onload="loginload()">
 		<div id="whiteboard">
 			<h1 align="center">Whiteboard</h1>
 			<div id="login">
