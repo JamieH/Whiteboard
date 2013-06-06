@@ -69,7 +69,8 @@
 				<p>Username <input id="username" type="text"></p>
 				<p>Password <input id="password" type="password"></p>
 				<input id="submit" type="submit" value="Log-in"><br/>
-				<p id="footnote" style="font-size: 9px; color: rgba(90,90,90,0.5); margin-top: 4px;" align="center">Developed by Jamie Hankins & Matthew James</div>
+				<p id="footnote" style="font-size: 9px; color: rgba(90,90,90,0.5); margin-top: 4px;" align="center">Developed by Jamie Hankins & Matthew James | <a href="register.php">Register</a><br />
+		</div>
 			</form>
 		</div>
 		</div>
