@@ -21,6 +21,41 @@
         }
     }
 
+    function getID($db, $email)
+    {
+        $query = " 
+            SELECT 
+                id
+            FROM users 
+            WHERE 
+                email = :email 
+        "; 
+         
+        // The parameter values 
+        $query_params = array( 
+            ':email' => $email
+        ); 
+         
+        try 
+        { 
+            // Execute the query against the database 
+            $stmt = $db->prepare($query); 
+            $result = $stmt->execute($query_params); 
+        } 
+        catch(PDOException $ex) 
+        { 
+            dieError($ex);
+        } 
+         
+        // Retrieve the user data from the database.  If $row is false, then the username 
+        // they entered is not registered. 
+        $row = $stmt->fetch(); 
+        if($row) 
+        {              
+            return $row['id'];
+        } 
+    }
+
     function tryLogin($username, $password)
     {
         $query = " 
