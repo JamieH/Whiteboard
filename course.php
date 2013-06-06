@@ -1,4 +1,5 @@
 <?php
+include 'common.php';
     if(empty($_SESSION['user'])) 
     { 
         // If they are not, we redirect them to the login page. 
