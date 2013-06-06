@@ -13,8 +13,8 @@ function loadafterlogin(){
 		}
 		temp.innerHTML = "<div class='unitgrade' id='" + scorefinal + "'>" + s + "</div>" + temp.innerHTML;
 		temp.setAttribute('onclick', 'expand(' + i + ',true)');
-		IDPanelPlacement();
 	}
+	IDPanelPlacement();
 }
 function expand(id, operation){
 	if (operation == false){
