@@ -44,9 +44,14 @@ function expand(id, operation){
 		document.getElementsByClassName('expand').item(id).setAttribute('onclick', 'expand(' + id + ',false)');
 	}
 }
+function IDPanelPlacement(){
+	var p = $('#content');
+	var cloc = p.offset();
+	$('#IDPanel').css({top: cloc.top});
+}
 </script>
 </head>
-<body onload="load()">
+<body onload="load()" onresize="IDPanelPlacement()">
 <?php include'header.php';?>
 <div id="content">
 	<h2 align="center"> IT Extended Diploma Level 3</h2>
