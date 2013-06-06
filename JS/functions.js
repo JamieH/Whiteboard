@@ -13,8 +13,8 @@ function loadafterlogin(){
 		}
 		temp.innerHTML = "<div class='unitgrade' id='" + scorefinal + "'>" + s + "</div>" + temp.innerHTML;
 		temp.setAttribute('onclick', 'expand(' + i + ',true)');
+		IDPanelPlacement();
 	}
-	IDPanelPlacement();
 }
 function expand(id, operation){
 	if (operation == false){
@@ -43,7 +43,7 @@ function Login(){
 				if(data.indexOf("true") !== -1)
 				{
 					document.getElementById('footnote').innerHTML = "Logged In.";
-					document.getElementById('login').style.opacity = 0;
+					document.getElementById('whiteboard').style.opacity = 0;
 					document.getElementsByTagName('h1').item(0).opacity = 0;
 					setTimeout(function() 
 					{
@@ -53,7 +53,7 @@ function Login(){
 
 
 				setTimeout(function() {
-					var o = document.getElementById('login');
+					var o = document.getElementById('whiteboard');
 					o.style.left = window.innerWidth / 2 - 125 + 10;
 					setTimeout(function() {
 						o.style.left = window.innerWidth / 2 - 125 - 10;
@@ -73,6 +73,10 @@ function Login(){
 			return false;
 	}
 	function loginload(){
-		var o = document.getElementById('login');
-		o.style.left = window.innerWidth / 2 - 125;
+		$(".register").css({left: window.innerWidth / 2 - 125});
+		$(".login").css({left: window.innerWidth / 2 - 125});
+	}
+	function askregistration(){
+			$(".register").toggle();
+			$(".login").toggle();
 	}
