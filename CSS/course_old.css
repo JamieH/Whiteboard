@@ -1,0 +1,124 @@
+@font-face
+{
+font-family: Font;
+src: url('../Fonts/font.ttf'); /* IE9+ */
+}
+@font-face
+{
+font-family: WhiteboardFont;
+src: url('../Fonts/ComingSoon.ttf'); /* IE9+ */
+}
+body{
+	font-family: Font;
+	color: rgba(40,40,40,1);
+	//background: rgba(250,250,250,1);
+	background: url('../Images/mesh.png');
+}
+#content{
+	border-radius: 2px;
+	width: 85%;
+	background: white;
+	margin-left: auto;
+	margin-right: auto;
+	height: 500px;
+	min-height: 600px;
+	padding: 50px 50px 50px 50px;
+}
+
+.expand{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background: #f7f7f7; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f7f7f7 0%, #dddddd 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#dddddd)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f7f7f7 0%,#dddddd 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f7f7f7 0%,#dddddd 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f7f7f7 0%,#dddddd 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f7f7f7 0%,#dddddd 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	height: 40px;
+	margin-top: 40px;
+	padding: 10px 10px 10px 10px;
+	overflow: hidden;
+	border-radius: 5px;
+}
+#expandtitle{
+	margin-top: 7px;
+	cursor: pointer;
+}
+.upload{
+	text-indent:  20px;
+}
+#IDPanel{
+	font-size: 94%;
+	color: white;
+	padding-left: 4px;
+	padding-right: 4px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	height: 22px;
+	background: url('../Images/mesh.png');
+	text-align: center;
+	padding-top: 10px;
+	position: absolute;
+	margin-top: -1px;
+	right: 10%;
+	top: 1.5%;
+	width: 120px;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+#IDPanel li{
+	font-size: 70%;
+	list-style: none;
+	text-decoration: none;
+}
+.unitgrade{
+	border-radius: 50%;
+	border: #383838 2px solid;
+	width: 45px;
+	height: 30px;
+	padding-top: 10px;
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+	float: right;
+	margin-right: 0px;
+	margin-top: 0px;
+}
+#unitp{
+	background: #24bf2c; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #24bf2c 0%, #00fc10 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#24bf2c), color-stop(100%,#00fc10)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #24bf2c 0%,#00fc10 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #24bf2c 0%,#00fc10 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #24bf2c 0%,#00fc10 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  #24bf2c 0%,#00fc10 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24bf2c', endColorstr='#00fc10',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+#unitu{
+	background: #b54848; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #b54848 0%, #ff0000 99%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#b54848), color-stop(99%,#ff0000)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #b54848 0%,#ff0000 99%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #b54848 0%,#ff0000 99%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #b54848 0%,#ff0000 99%); /* IE10+ */
+background: radial-gradient(ellipse at center,  #b54848 0%,#ff0000 99%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b54848', endColorstr='#ff0000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+#IDPanel:Hover{
+	height: 100px;
+}
+#IDPanel:Hover, .expandtitle:Hover{
+	cursor: pointer;
+}
