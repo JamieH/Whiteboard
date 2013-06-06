@@ -1,3 +1,15 @@
+<?php
+    if(empty($_SESSION['user'])) 
+    { 
+        // If they are not, we redirect them to the login page. 
+        header("Location: index.html"); 
+         
+        // Remember that this die statement is absolutely critical.  Without it, 
+        // people can view your members-only content without logging in. 
+        die("Redirecting to login.html"); 
+    } 
+?>
+
 <html>
 <head>
 <title><?php echo "IT Extended Diploma Level 3 - Whiteboard";?></title>
