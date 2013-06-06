@@ -15,42 +15,9 @@ include 'common.php';
 <title><?php echo "IT Extended Diploma Level 3 - Whiteboard";?></title>
 <link href="CSS/course.css" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
-<script>
-function load(){
-	for(var i = 0; i < document.getElementsByClassName('expand').length; i++){
-		temp = document.getElementsByClassName('expand').item(i);
-		temp.innerHTML = "<h3 id='expandtitle' align='center'>" + temp.id + "</h3>" + temp.innerHTML;
-		var s = temp.getAttribute('score');
-		var scorefinal = "unitu";
-		if(s != "U"){
-			scorefinal = "unitp";
-			if(s == null){
-				s = "U";
-				scorefinal = "unitu";
-			}
-		}
-		temp.innerHTML = "<div class='unitgrade' id='" + scorefinal + "'>" + s + "</div>" + temp.innerHTML;
-		temp.setAttribute('onclick', 'expand(' + i + ',true)');
-	}
-}
-function expand(id, operation){
-	if (operation == false){
-		document.getElementsByClassName('expand').item(id).style.height = "40px";
-		document.getElementsByClassName('expand').item(id).setAttribute('onclick', 'expand(' + id + ',true)');
-	}
-	else{
-		document.getElementsByClassName('expand').item(id).style.height = "auto";
-		document.getElementsByClassName('expand').item(id).setAttribute('onclick', 'expand(' + id + ',false)');
-	}
-}
-function IDPanelPlacement(){
-	var p = $('#content');
-	var cloc = p.offset();
-	$('#IDPanel').css({top: cloc.top});
-}
-</script>
+<script src="JS/functions.js"></script>
 </head>
-<body onload="load()" onresize="IDPanelPlacement()">
+<body onload="loadafterlogin()" onresize="IDPanelPlacement()">
 	<div id="IDPanel"> <?php echo ucfirst(strtolower(htmlentities($_SESSION['user']['username'], ENT_QUOTES, "UTF-8"))); ?> 
 		<a href="https://docs.google.com/spreadsheet/ccc?key=0Ar405A90uLjQdHpBU210ZmVoNXVZZ1lMZzZtYmg2NkE#gid=18"><li>Tracking Sheet</li></a>
 		<a href="https://adfs.strode-college.ac.uk/CookieAuth.dll?GetLogon?curl=Z2FadfsZ2FlsZ2FZ3FwaZ3Dwsignin1.0Z26wtrealmZ3DurnZ3AfederationZ3AMicrosoftOnlineZ26wctxZ3DwaZ253Dwsignin1.0Z2526rpsnvZ253D2Z2526ctZ253D1370532248Z2526rverZ253D6.1.6206.0Z2526wpZ253DMBI_KEYZ2526wreplyZ253DhttpsZ3AZ25252FZ25252Famxprd0112.outlook.comZ25252FowaZ25252FZ2526idZ253D260563Z2526whrZ253Dstudent.strode-college.ac.ukZ2526CBCXTZ253Dout&reason=0&formdir=6"><li>Email</li></a>
