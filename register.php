@@ -136,8 +136,8 @@
         }
          
         // This redirects the user back to the login page after they register 
-        header("Location: login.php"); 
-        die("Redirecting to login.php"); 
+        header("Location: index.html"); 
+        die("Redirecting to index.html"); 
     } 
      
 ?> 
