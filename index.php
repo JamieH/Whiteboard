@@ -1,3 +1,12 @@
+<?php
+	include 'common.php';
+    if(!empty($_SESSION['user'])) 
+    { 
+        // If they are, we redirect them to the login page. 
+        header("Location: course.php"); 
+        die("Redirecting to course.php"); 
+    } 
+?>
 <html>
 	<head><title>Whiteboard | Home</title>
 	<link href="CSS/main.css" rel="stylesheet" type="text/css" />
