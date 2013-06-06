@@ -183,5 +183,6 @@ if (isset($_SESSION))
 
 </div>
 <br/>
+<?php include 'footer.php'; ?>
 </body>
 </html>

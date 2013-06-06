@@ -100,5 +100,6 @@ function expand(id, operation){
 
 </div>
 <br/>
+<?php include'footer.php';?>
 </body>
 </html>
