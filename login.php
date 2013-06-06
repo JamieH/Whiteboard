@@ -15,7 +15,7 @@
         // This query retreives the user's information from the database using 
         // their username. 
         $query = " 
-            SELECT 
+            SELECT  
                 id, 
                 username, 
                 password, 
@@ -88,29 +88,13 @@
             // the user's details. 
             $_SESSION['user'] = $row; 
              
-            // Redirect the user to the private members-only page. 
-            header("Location: private.php"); 
-            die("Redirecting to: private.php"); 
+            print ("true");
         } 
         else 
         { 
             // Tell the user they failed 
-            print("Login Failed."); 
-             
-            // Show there username but use HTMLEntitys to stop XSS
-            $submitted_username = htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8'); 
+            print("false"); 
         } 
     } 
      
-?> 
-<h1>Login</h1> 
-<form action="login.php" method="post"> 
-    Username:<br /> 
-    <input type="text" name="username" value="<?php echo $submitted_username; ?>" /> 
-    <br /><br /> 
-    Password:<br /> 
-    <input type="password" name="password" value="" /> 
-    <br /><br /> 
-    <input type="submit" value="Login" /> 
-</form> 
-<a href="register.php">Register</a>
+?>
