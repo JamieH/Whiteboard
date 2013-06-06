@@ -71,6 +71,7 @@ body{
 	margin-top: -1px;
 	right: 10%;
 	top: 1.5%;
+	overflow: hidden;
 	width: 120px;
 	transition: all 1s;
 	-webkit-transition: all 1s;
@@ -117,8 +118,20 @@ background: radial-gradient(ellipse at center,  #b54848 0%,#ff0000 99%); /* W3C 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b54848', endColorstr='#ff0000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 #IDPanel:Hover{
-	height: 100px;
+	height: 130px;
 }
 #IDPanel:Hover, .expandtitle:Hover{
 	cursor: pointer;
+}
+a:link, a:visited{
+	color: red;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+#IDPanel a:link, #IDPanel a:Hover{
+	text-decoration: none;
+	color: white;
+}cursor: pointer;
 }

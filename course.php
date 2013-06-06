@@ -49,10 +49,11 @@ function expand(id, operation){
 <body onload="load()">
 	<div id="IDPanel"> <?php echo ucfirst(strtolower(htmlentities($_SESSION['user']['username'], ENT_QUOTES, "UTF-8"))); ?> 
 		<li>Tracking Sheet</li>
-		<li>Email</li>
-		<li>Other Links</li>
-		<li>Change Password</li>
-		<li><a href='logout.php'>Log-out</a></li>
+		<li><a href="">Email</a></li>
+		<li><a href="">Other Links</a></li>
+		<li><a href="">Change Password</a></li>
+		<li><a href="">My Profile</a></li>
+		<li><a href="log-out.php">Log-out</a></li>
 	</div>
 <div id="content">
 	<h2 align="center"> IT Extended Diploma Level 3</h2>
