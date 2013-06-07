@@ -15,6 +15,7 @@ include 'common.php';
 <title><?php echo "IT Extended Diploma Level 3 - Whiteboard";?></title>
 <link href="CSS/course.css" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+<script src="http://malsup.github.io/jquery.cycle.all.js"></script>
 <script src="JS/functions.js"></script>
 </head>
 <body onload="loadafterlogin()" onresize="IDPanelPlacement()">
@@ -37,6 +38,5 @@ include 'common.php';
 	</div>
 </div>
 <br/>
-<?php include'footer.php';?>
 </body>
 </html>

@@ -160,9 +160,30 @@
 	<head><title>Whiteboard | Home</title>
 	<link href="CSS/main.css" rel="stylesheet" type="text/css" />
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+    <script src="http://malsup.github.io/jquery.cycle.all.js"></script>
 	<script src="JS/functions.js"></script>
+    <style>
+        #git{
+            background: rgba(0,0,0,0.6);
+            width: 60%;
+            height: 40px;
+            font-size: 17px;
+            position: absolute;
+            bottom: 0px;
+            left: 20%;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            color: white;
+            text-align: center;
+        }
+        #git p{
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 	</head>
-	<body onresize="loginload()" onload="loginload()">
+	<body onresize="loginload()" onload="getdata()">
 		<div id="mainbackground">
 			<h1 align="center">Whiteboard</h1>
 			<div id="whiteboard" class="login">
@@ -188,5 +209,9 @@
 			</div>
 		</div>
 		</div>
+        <h3 align="center" style="position: absolute; bottom: 25px; color: white; width: 100%;">Latest Additions</h3>
+    <?php
+    include("footer.php");
+    ?>
 	</body>
 </html>

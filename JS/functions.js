@@ -14,6 +14,7 @@ function loadafterlogin(){
 		temp.innerHTML = "<div class='unitgrade' id='" + scorefinal + "'>" + s + "</div>" + temp.innerHTML;
 		temp.setAttribute('onclick', 'expand(' + i + ',true)');
 		IDPanelPlacement();
+		getdata();
 	}
 }
 function expand(id, operation){
@@ -80,3 +81,21 @@ function Login(){
 			$(".register").toggle();
 			$(".login").toggle();
 	}
+	function getdata(){
+            $.get('http://86.138.18.111/Whiteboard/run.php', function(data){
+            if(data.length != 0){
+                document.getElementById('git').innerHTML += data;
+                  $('#git').cycle({
+                     fx: "scrollLeft",
+                     next: "#git",
+                     delay: -2000, 
+        });
+                  //setting the slideshow now prevent's it stopping
+            }
+            else{
+                getdata();
+                //wait for next update
+            }
+            });
+         loginload();
+        }

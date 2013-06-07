@@ -79,3 +79,23 @@ a:link, a:visited{
 #link{
 	color: #135192;
 }
+#git{
+    background: rgba(0,0,0,0.6);
+    width: 60%;
+    height: 40px;
+    font-size: 17px;
+    position: fixed;
+    bottom: 0px;
+    left: 20%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    color: white;
+    text-align: center;
+      border: solid white 2px;
+      border-bottom: none;
+        }
+#git p{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    }

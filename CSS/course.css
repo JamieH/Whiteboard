@@ -8,6 +8,25 @@ src: url('../Fonts/font.ttf'); /* IE9+ */
 font-family: WhiteboardFont;
 src: url('../Fonts/ComingSoon.ttf'); /* IE9+ */
 }
+#git{
+	background: rgba(0,0,0,0.6);
+   	width: 60%;
+    height: 40px;
+    font-size: 17px;
+    position: fixed;
+    bottom: 0px;
+    left: 20%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    color: white;
+    border: solid white 2px;
+      border: solid white 2px;
+}
+#git p{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
 body{
 	font-family: Font;
 	color: rgba(40,40,40,1);
