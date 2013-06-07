@@ -78,8 +78,8 @@ function Login(){
 		$(".login").css({left: window.innerWidth / 2 - 125});
 	}
 	function askregistration(){
-			$(".register").toggle();
-			$(".login").toggle();
+			$(".register").fadeToggle("slow", "linear");
+			$(".login").fadeToggle("slow", "linear");
 	}
 	function getdata(){
             $.get('run.php', function(data){
