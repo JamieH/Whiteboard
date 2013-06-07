@@ -82,7 +82,7 @@ function Login(){
 			$(".login").toggle();
 	}
 	function getdata(){
-            $.get('http://86.138.18.111/Whiteboard/run.php', function(data){
+            $.get('run.php', function(data){
             if(data.length != 0){
                 document.getElementById('git').innerHTML += data;
                   $('#git').cycle({
