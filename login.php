@@ -42,7 +42,9 @@
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
             die("Failed to run query: " . $ex->getMessage()); 
-        } 
+        }
+
+
          
         // This variable tells us whether the user has successfully logged in or not. 
         // We initialize it to false, assuming they have not. 
@@ -74,6 +76,42 @@
         // Otherwise, we display a login failed message and show the login form again 
         if($login_ok) 
         {
+            $querya = " 
+            SELECT  
+                id, 
+                username, 
+                password
+            FROM moodleauth 
+            WHERE 
+                id = :username 
+        "; 
+         
+        // The parameter values 
+        $querya_params = array( 
+            ':id' => $row['id']
+        ); 
+         
+        // Execute the query against the database 
+        try 
+        { 
+            $stmtm = $db->prepare($querym); 
+            $result = $stmtm->execute($querym_params); 
+        } 
+        catch(PDOException $ex) 
+        { 
+            // Note: On a production website, you should not output $ex->getMessage(). 
+            // It may provide an attacker with helpful information about your code.  
+            die("Failed to run query: " . $ex->getMessage()); 
+        }
+
+
+        $rowm = $stmtm->fetch(); 
+
+
+        if($rowm) 
+        { 
+            $row['moodleusername'] = $rowm['username'];
+        } 
             // Here I am preparing to store the $row array into the $_SESSION by
             // removing the salt and password values from it.  Although $_SESSION is 
             // stored on the server-side, there is no reason to store sensitive values 
@@ -81,7 +119,6 @@
             // sensitive values first. 
             unset($row['salt']); 
             unset($row['password']); 
-             
             // This stores the user's data into the session at the index 'user'. 
             // We will check this index on the private members-only page to determine whether 
             // or not the user is logged in.  We can also use it to retrieve 
