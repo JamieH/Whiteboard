@@ -7,7 +7,6 @@
     // login form if they fail to enter the correct password.  It is initialized here 
     // to an empty value, which will be shown if the user has not submitted the form. 
     $submitted_username = ''; 
-     
     // This if statement checks to determine whether the login form has been submitted 
     // If it has, then the login code is run, otherwise the form is displayed 
     if(!empty($_POST)) 
@@ -83,12 +82,12 @@
                 password
             FROM moodleauth 
             WHERE 
-                id = :username 
+                username = :username 
         "; 
          
         // The parameter values 
         $querya_params = array( 
-            ':id' => $row['id']
+            ':username' => $_POST['username']
         ); 
          
         // Execute the query against the database 
@@ -132,6 +131,6 @@
             // Tell the user they failed 
             print("false"); 
         } 
-    } 
+    }
      
 ?>
