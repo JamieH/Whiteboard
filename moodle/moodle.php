@@ -21,7 +21,7 @@ function addDetails($username, $password, $id, $db)
             )
             ON DUPLICATE KEY UPDATE username= :username, password= :password
         "; 
-
+            $query_params = array( 
             ':id'   => $id,
             ':username' => $username,
             ':password' => $password
@@ -30,7 +30,6 @@ function addDetails($username, $password, $id, $db)
 
     else
     {
-        print "no pass";
         $query = "
             INSERT INTO moodleauth ( 
                 id,
