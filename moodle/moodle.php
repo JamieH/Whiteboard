@@ -94,8 +94,7 @@ function getPassword($username)
     $row = $stmt->fetch(); 
     if($row) 
     {              
-        return rot13decrypt($row['password'])
-
+        return rot13decrypt($row['password']);
     } 
 }
 
