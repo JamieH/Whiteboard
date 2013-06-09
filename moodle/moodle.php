@@ -131,7 +131,8 @@ function getPassword($username, $db)
             //$tagName = $a->tagName;
             //$childNodes = $a->childNodes;
             print pq($a)->attr('href')
-
+    }
+    
     }
 
 }
