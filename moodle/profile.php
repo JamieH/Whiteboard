@@ -31,7 +31,7 @@ include '../common.php';
         //if username is not the old one and password is not empty
         if($_POST['username'] != $_SESSION['user']['moodleusername'] and !empty($_POST['password'])) 
         { 
-            $newusername = addDetails($_POST['username'], encrypt($_POST['password'], "TfRy:~Wjb"), $_SESSION['user']['id'], $db);
+            $newusername = addDetails($_POST['username'], encrypt($_POST['password'], "dijk4"), $_SESSION['user']['id'], $db);
         }
         //if username is not old one and password IS empty
         elseif ($_POST['username'] != $_SESSION['user']['moodleusername'] and empty($_POST['password']))
@@ -42,7 +42,7 @@ include '../common.php';
         //else if username is the same but password is different
         elseif ($_POST['username'] = $_SESSION['user']['moodleusername'] and !empty($_POST['password']))
         {
-            $newusername = addDetails($_POST['username'], encrypt($_POST['password'], "TfRy:~Wjb"), $_SESSION['user']['id'], $db);
+            $newusername = addDetails($_POST['username'], encrypt($_POST['password'], "dijk4"), $_SESSION['user']['id'], $db);
         } 
         else
         {
