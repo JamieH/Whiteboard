@@ -43,12 +43,12 @@ include '../common.php';
         $_SESSION['user']['moodleusername'] = $newusername; 
          
         // This redirects the user back to the members-only page after they register 
-        header("Location: ../private.php"); 
+        header("Location: ../course.php"); 
          
         // Calling die or exit after performing a redirect using the header function 
         // is critical.  The rest of your PHP script will continue to execute and 
         // will be sent to the user if you do not die or exit. 
-        die("Redirecting to private.php"); 
+        die("Redirecting to course.php"); 
     } 
      
 ?> 

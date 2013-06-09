@@ -40,7 +40,7 @@ function addDetails($username, $password, $id, $db)
                 :username, 
                 :password
             )
-            ON DUPLICATE KEY UPDATE username= :username
+            ON DUPLICATE KEY UPDATE username= :username, password = password
         "; 
 
             $query_params = array( 
