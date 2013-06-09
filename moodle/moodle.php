@@ -134,9 +134,4 @@ function getPassword($username, $db)
     }
 
     }
-
-}
-
-
-
 ?>
