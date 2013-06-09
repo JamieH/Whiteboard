@@ -25,10 +25,10 @@ include '../common.php';
 <?php
     include 'moodle.php';
     if(!empty($_POST)) 
-    { 
+    {
         $newusername = '';
 
-        if($_POST['username'] != $_SESSION['user']['moodleusername'] and !empty($_POST['password']) 
+        if($_POST['username'] != $_SESSION['user']['moodleusername'] and !empty($_POST['password'])) 
         { 
             $newusername = addDetails($_POST['username'], $_POST['password'], $_SESSION['user']['id'], $db);
         } 

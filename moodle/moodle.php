@@ -20,7 +20,7 @@ function addDetails($username, $password, $id, $db)
                 :password
             )
             ON DUPLICATE KEY UPDATE username= :username, password= :password
-        "; 
+        ";
             $query_params = array( 
             ':id'   => $id,
             ':username' => $username,
