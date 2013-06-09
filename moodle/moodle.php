@@ -9,7 +9,6 @@ function addDetails($username, $password, $id, $db)
 
     if (!is_null($password))
     {
-            print "hia password";
             $query = "
             INSERT INTO moodleauth ( 
                 id,
@@ -23,7 +22,6 @@ function addDetails($username, $password, $id, $db)
             ON DUPLICATE KEY UPDATE username= :username, password= :password
         "; 
 
-            $query_params = array( 
             ':id'   => $id,
             ':username' => $username,
             ':password' => $password

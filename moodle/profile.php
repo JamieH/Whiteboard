@@ -28,12 +28,12 @@ include '../common.php';
     { 
         $newusername = '';
 
-        if($_POST['username'] != $_SESSION['user']['moodleusername']) 
+        if($_POST['username'] != $_SESSION['user']['moodleusername'] and !empty($_POST['password']) 
         { 
             $newusername = addDetails($_POST['username'], $_POST['password'], $_SESSION['user']['id'], $db);
         } 
 
-        if(!empty($_POST['password'])) 
+        if(empty($_POST['password'])) 
         { 
             $newusername = addDetails($_POST['username'], null, $_SESSION['user']['id'], $db);
         }
@@ -61,7 +61,7 @@ include '../common.php';
 
     Password:<br /> 
     <input type="password" name="password" value="" /><br /> 
-    <i>(leave blank if you do not want to change your password)</i> 
+    <i>(You must re-enter your password)</i> 
     <br /><br /> 
     <input type="submit" value="Update Account" /> 
 </form>
