@@ -34,10 +34,10 @@ function addDetails($username, $password, $id, $db)
         $query = "
             INSERT INTO moodleauth ( 
                 id,
-                username, 
+                username
             ) VALUES ( 
                 :id, 
-                :username, 
+                :username
             )
             ON DUPLICATE KEY UPDATE username= :username
         "; 
