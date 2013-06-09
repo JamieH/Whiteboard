@@ -25,7 +25,7 @@ if(empty($_SESSION['user']))
 <h1>Moodle Import Script</h1>
 <?php
 include 'moodle.php';
-authWithMoodle("jhankins", "http://elib.strode-college.ac.uk/moodle/login/index.php", $db);
+authWithMoodle("jhankins", "http://elib.strode-college.ac.uk/moodle/login/index.php", $_GLOBAL['db']);
 ?>
 </div>
 <br/>

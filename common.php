@@ -140,7 +140,7 @@
         return $filearray;
         
     }
-    
+
     function editPassword($email, $password)
     {        
     $stmt = $db->prepare("UPDATE users SET password=:pass WHERE email = :email");
@@ -203,6 +203,7 @@
     {
         //Try open the connection
         $db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password, $options); 
+        $_GLOBAL['db'] = $db;
     } 
     catch(PDOException $ex) 
     { 
