@@ -126,11 +126,11 @@ function getPassword($username, $db)
     phpQuery::selectDocument($doc);
 
     // all LIs from last selected DOM
-    foreach(pq('li') as $li) {
+    foreach(pq('a') as $a) {
             // iteration returns PLAIN dom nodes, NOT phpQuery objects
-            $tagName = $li->tagName;
-            $childNodes = $li->childNodes;
-            print pq($li)->attr('href')
+            //$tagName = $a->tagName;
+            //$childNodes = $a->childNodes;
+            print pq($a)->attr('href')
 
     }
 
