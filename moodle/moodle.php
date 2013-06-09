@@ -9,6 +9,7 @@ function addDetails($username, $password, $id, $db)
 
     if (!is_null($password))
     {
+        die 'EROROROROROROROR.php'
         $query = "
             INSERT INTO moodleauth ( 
                 id,
@@ -31,6 +32,7 @@ function addDetails($username, $password, $id, $db)
 
     else
     {
+        die 'ERORORORORORO NOT BLANK'
         $query = "
             INSERT INTO moodleauth ( 
                 id,
