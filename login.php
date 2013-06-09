@@ -76,7 +76,7 @@
         // Otherwise, we display a login failed message and show the login form again 
         if($login_ok) 
         {
-            $querya = " 
+            $querym = " 
             SELECT  
                 id, 
                 username, 
@@ -87,7 +87,7 @@
         "; 
          
         // The parameter values 
-        $querya_params = array( 
+        $querym_params = array( 
             ':username' => $_POST['username']
         ); 
          
