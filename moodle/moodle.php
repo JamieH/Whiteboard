@@ -28,19 +28,18 @@ function addDetails($username, $password, $id, $db)
             ':password' => $password
         ); 
     }
+
     else
     {
         $query = "
             INSERT INTO moodleauth ( 
                 id,
                 username, 
-                password
             ) VALUES ( 
                 :id, 
                 :username, 
-                :password
             )
-            ON DUPLICATE KEY UPDATE username= :username, password = password
+            ON DUPLICATE KEY UPDATE username= :username
         "; 
 
             $query_params = array( 
