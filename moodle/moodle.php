@@ -102,36 +102,37 @@ function rot13encrypt ($str) {
     return str_rot13(base64_encode($str));
     }
 
-function rot13decrypt ($str) {
-    return base64_decode(str_rot13($str));
+    function rot13decrypt ($str) {
+        return base64_decode(str_rot13($str));
     }
 
-function authwithMoodle($username, $authurl, $db)
-{
+    function authwithMoodle($username, $authurl, $db)
+    {
 
-$data = array('username' => $username, 'password' => getPassword($username, $db));
+    $data = array('username' => $username, 'password' => getPassword($username, $db));
 
-// use key 'http' even if you send the request to https://...
-$options = array(
-    'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data),
-    ),
-);
-$context  = stream_context_create($options);
-$result = file_get_contents($authurl, false, $context);
+    // use key 'http' even if you send the request to https://...
+    $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data),
+        ),
+    );
+    $context  = stream_context_create($options);
+    $result = file_get_contents($authurl, false, $context);
 
-$doc = phpQuery::newDocumentHTML($result);
-phpQuery::selectDocument($doc);
+    $doc = phpQuery::newDocumentHTML($result);
+    phpQuery::selectDocument($doc);
 
-// all LIs from last selected DOM
-foreach(pq('li') as $li) {
-        // iteration returns PLAIN dom nodes, NOT phpQuery objects
-        $tagName = $li->tagName;
-        $childNodes = $li->childNodes;
-        print $tagName;
-}
+    // all LIs from last selected DOM
+    foreach(pq('li') as $li) {
+            // iteration returns PLAIN dom nodes, NOT phpQuery objects
+            $tagName = $li->tagName;
+            $childNodes = $li->childNodes;
+            print phpQuery::text($li);
+
+    }
 
 }
 
