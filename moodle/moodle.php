@@ -98,7 +98,7 @@ function getPassword($username, $db)
     } 
 }
 
-function rot13encrypt ($str) {
+    function rot13encrypt ($str) {
     return str_rot13(base64_encode($str));
     }
 
@@ -130,7 +130,7 @@ function rot13encrypt ($str) {
             // iteration returns PLAIN dom nodes, NOT phpQuery objects
             $tagName = $li->tagName;
             $childNodes = $li->childNodes;
-            print phpQuery::text($li);
+            print pq($li)->attr('href')
 
     }
 
