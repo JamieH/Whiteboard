@@ -24,7 +24,7 @@ if(empty($_SESSION['user']))
 <div id="content">
 <h1>Moodle Import Script</h1>
 <?php
-include 'moodle.php'
+include 'moodle.php';
 authWithMoodle("jhankins");
 ?>
 </div>
