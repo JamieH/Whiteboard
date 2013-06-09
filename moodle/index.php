@@ -15,19 +15,20 @@ if(empty($_SESSION['user']))
 <html>
 <head>
 <title>IT Extended Diploma Level 3 - Whiteboard</title>
-<link href="CSS/course.css" rel="stylesheet" type="text/css" />
+<link href="../CSS/course.css" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
-<script src="JS/functions.js"></script>
+<script src="../JS/functions.js"></script>
 </head>
 <body onload="loadafterlogin()" onresize="IDPanelPlacement()">
-<?php include'header.php';?>
+<?php include'../header.php';?>
 <div id="content">
 <h1>Moodle Import Script</h1>
 <?php
-authWithMoodle("jhankins")
+include 'moodle.php'
+authWithMoodle("jhankins");
 ?>
 </div>
 <br/>
-<?php include'footer.php';?>
+<?php include'../footer.php';?>
 </body>
 </html>

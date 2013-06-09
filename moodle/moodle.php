@@ -63,19 +63,19 @@ function addDetails($username, $password, $id, $db)
         return $username;
 }
 
-function getSalt($user, $db)
+function getPassword($username)
 {
     $query = " 
         SELECT 
-            salt
-        FROM users 
+            password
+        FROM moodleauth 
         WHERE 
             username = :user 
     "; 
      
     // The parameter values 
     $query_params = array( 
-        ':user' => $user
+        ':user' => $username
     ); 
      
     try 
@@ -94,7 +94,8 @@ function getSalt($user, $db)
     $row = $stmt->fetch(); 
     if($row) 
     {              
-        return $row['salt'];
+        return rot13decrypt($row['password'])
+
     } 
 }
 
@@ -109,8 +110,7 @@ function rot13decrypt ($str) {
 function authwithMoodle($username, $authurl, $db)
 {
 
-$username = encrypt("jhankins", $getSalt($username, $db));
-$data = array('username' => $username, 'password' => $password);
+$data = array('username' => $username, 'password' => $getPassword($username));
 
 // use key 'http' even if you send the request to https://...
 $options = array(
