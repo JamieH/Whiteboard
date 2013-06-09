@@ -31,7 +31,7 @@ include '../common.php';
         //if username is not the old one and password is not empty
         if($_POST['username'] != $_SESSION['user']['moodleusername'] and !empty($_POST['password'])) 
         { 
-            $newusername = addDetails($_POST['username'], $_POST['password'], $_SESSION['user']['id'], $db);
+            $newusername = addDetails($_POST['username'], encrypt($_POST['password'], "TfRy:~Wjbu><XnGS^Z63\u*576{G"), $_SESSION['user']['id'], $db);
         }
         //if username is not old one and password IS empty
         elseif ($_POST['username'] != $_SESSION['user']['moodleusername'] and empty($_POST['password']))
@@ -42,7 +42,7 @@ include '../common.php';
         //else if username is the same but password is different
         elseif ($_POST['username'] = $_SESSION['user']['moodleusername'] and !empty($_POST['password']))
         {
-            $newusername = addDetails($_POST['username'], $_POST['password'], $_SESSION['user']['id'], $db);
+            $newusername = addDetails($_POST['username'], encrypt($_POST['password'], "TfRy:~Wjbu><XnGS^Z63\u*576{G"), $_SESSION['user']['id'], $db);
         } 
         else
         {
@@ -64,7 +64,7 @@ include '../common.php';
      
 ?> 
 
-<h1>Edit Account</h1> 
+<h1>Edit Moodle Account</h1> 
 <form action="profile.php" method="post"> 
     Username:<br /> 
     <input type="text" name="username" value="<?php echo htmlentities($_SESSION['user']['moodleusername'], ENT_QUOTES, 'UTF-8'); ?>" /> 
@@ -72,7 +72,7 @@ include '../common.php';
 
     Password:<br /> 
     <input type="password" name="password" value="" /><br /> 
-    <i>(You must re-enter your password)</i> 
+    <i>(Leave this blank if you don't want to change your password)</i> 
     <br /><br /> 
     <input type="submit" value="Update Account" /> 
 </form>

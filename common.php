@@ -140,6 +140,7 @@
         return $filearray;
         
     }
+    
     function editPassword($email, $password)
     {        
     $stmt = $db->prepare("UPDATE users SET password=:pass WHERE email = :email");
