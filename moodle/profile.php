@@ -23,6 +23,7 @@ include '../common.php';
 <div id="content">
 	<h2 align="center"> IT Extended Diploma Level 3</h2>
 <?php
+    include 'moodle.php';
     if(!empty($_POST)) 
     { 
         $newusername = '';
