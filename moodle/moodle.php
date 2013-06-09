@@ -63,7 +63,7 @@ function addDetails($username, $password, $id, $db)
         return $username;
 }
 
-function getPassword($username)
+function getPassword($username, $db)
 {
     $query = " 
         SELECT 
@@ -109,7 +109,7 @@ function rot13decrypt ($str) {
 function authwithMoodle($username, $authurl, $db)
 {
 
-$data = array('username' => $username, 'password' => getPassword($username));
+$data = array('username' => $username, 'password' => getPassword($username, $db));
 
 // use key 'http' even if you send the request to https://...
 $options = array(
