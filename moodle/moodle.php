@@ -2,6 +2,79 @@
 //Moodle functions
 include 'phpQuery.php';
 
+function addDetails($username, $password, $id, $db)
+{
+    $query = '';
+    $query_params = '';
+
+    if (!is_null($password))
+    {
+        $query = "
+            INSERT INTO moodleauth ( 
+                id,
+                username, 
+                password
+            ) VALUES ( 
+                :id, 
+                :username, 
+                :password
+            )
+            ON DUPLICATE KEY UPDATE username= :username, password= :password
+        "; 
+
+            $query_params = array( 
+            ':id'   => $id,
+            ':username' => $username,
+            ':password' => $password
+        ); 
+    }
+    else
+    {
+        $query = "
+            INSERT INTO moodleauth ( 
+                id,
+                username, 
+                password
+            ) VALUES ( 
+                :id, 
+                :username, 
+                :password
+            )
+            ON DUPLICATE KEY UPDATE username= :username
+        "; 
+
+            $query_params = array( 
+            ':id'   => $id,
+            ':username' => $username,
+            ':password' => $password
+        ); 
+    }
+
+         
+        try 
+        { 
+            // Execute the query 
+            $stmt = $db->prepare($query); 
+            $result = $stmt->execute($query_params); 
+        } 
+
+        catch(PDOException $ex) 
+        { 
+            dieError($ex);
+        } 
+         
+        // Retrieve results (if any) 
+        $row = $stmt->fetch(); 
+        if($row) 
+        { 
+            die("This Username is already in use"); 
+        }
+        else
+        {
+            return $username;
+        }
+}
+
 function getSalt($user, $db)
 {
     $query = " 

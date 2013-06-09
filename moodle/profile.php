@@ -25,19 +25,21 @@ include '../common.php';
 <?php
     if(!empty($_POST)) 
     { 
-        if($_POST['email'] != $_SESSION['user']['email']) 
+        $newusername = '';
+
+        if($_POST['username'] != $_SESSION['user']['moodleusername']) 
         { 
-            $newemail = editEmail($_SESSION['user']['email'], $_POST['email']);
+            $newusername = addDetails($_POST['username'], $_POST['password'], $_SESSION['user']['id'], $db);
         } 
 
         if(!empty($_POST['password'])) 
         { 
-            $password = genPass($_POST['password']);
+            $newusername = addDetails($_POST['username'], null, $_SESSION['user']['id'], $db);
         }
          
         // Now that the user's E-Mail address has changed, the data stored in the $_SESSION 
         // array is stale; we need to update it so that it is accurate. 
-        $_SESSION['user']['email'] = $newemail; 
+        $_SESSION['user']['moodleusername'] = $newusername; 
          
         // This redirects the user back to the members-only page after they register 
         header("Location: private.php"); 
@@ -53,11 +55,9 @@ include '../common.php';
 <h1>Edit Account</h1> 
 <form action="edit_account.php" method="post"> 
     Username:<br /> 
-    <b><?php echo htmlentities($_SESSION['user']['moodleusername'], ENT_QUOTES, 'UTF-8'); ?></b> 
-    <br /><br /> 
-    E-Mail Address:<br /> 
-    <input type="text" name="email" value="<?php echo htmlentities($_SESSION['user']['email'], ENT_QUOTES, 'UTF-8'); ?>" /> 
-    <br /><br /> 
+    <input type="text" name="username" value="<?php echo htmlentities($_SESSION['user']['moodleusername'], ENT_QUOTES, 'UTF-8'); ?>" /> 
+    <br /><br />
+
     Password:<br /> 
     <input type="password" name="password" value="" /><br /> 
     <i>(leave blank if you do not want to change your password)</i> 
