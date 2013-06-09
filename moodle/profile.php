@@ -3,11 +3,11 @@ include '../common.php';
     if(empty($_SESSION['user'])) 
     { 
         // If they are not, we redirect them to the login page. 
-        header("Location: index.php"); 
+        header("Location: ../index.php"); 
          
         // Remember that this die statement is absolutely critical.  Without it, 
         // people can view your members-only content without logging in. 
-        die("Redirecting to login.html"); 
+        die("Redirecting to ../login.php"); 
     } 
 ?>
 
