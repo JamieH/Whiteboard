@@ -108,19 +108,35 @@ function getPassword($username, $db)
 
     function authwithMoodle($username, $authurl, $db)
     {
-
-    $data = array('username' => $username, 'password' => getPassword($username, $db));
-
-    // use key 'http' even if you send the request to https://...
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method'  => 'POST',
-            'content' => http_build_query($data),
-        ),
+    
+    $fields = array(
+        'username' => urlencode($username),
+        'password' => urlencode(getPassword($username, $db))
     );
-    $context  = stream_context_create($options);
-    $result = file_get_contents($authurl, false, $context);
+
+    //url-ify the data for the POST
+    foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+    rtrim($fields_string, '&');
+
+    //cookies
+    $ckfile = tempnam ("/tmp", $password); // :(
+
+
+    //open connection
+    $ch = curl_init();
+
+    //set the url, number of POST vars, POST data
+    curl_setopt($ch,CURLOPT_URL, $url);
+    curl_setopt($ch,CURLOPT_POST, count($fields));
+    curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+    curl_setopt ($ch, CURLOPT_COOKIEJAR, $ckfile); 
+    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+        
+    //execute post
+    $result = curl_exec($ch);
+
+    //close connection
+    curl_close($ch);
 
     $doc = phpQuery::newDocumentHTML($result);
     phpQuery::selectDocument($doc);
