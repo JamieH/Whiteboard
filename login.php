@@ -39,7 +39,8 @@
         catch(PDOException $ex) 
         { 
             // Note: On a production website, you should not output $ex->getMessage(). 
-            // It may provide an attacker with helpful information about your code.  
+       
+            die("Errored on Username bit");
             die("Failed to run query: " . $ex->getMessage()); 
         }
 
@@ -65,7 +66,7 @@
             } 
              
             if($check_password === $row['password']) 
-            { 
+            {
                 // If they do, then we flip this to true 
                 $login_ok = true; 
             } 
@@ -100,6 +101,7 @@
         { 
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
+            die("Errored on Moodle bit");
             die("Failed to run query: " . $ex->getMessage()); 
         }
 
