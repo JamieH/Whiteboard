@@ -14,12 +14,12 @@ include '../common.php';
 <html>
 <head>
 <title><?php echo "IT Extended Diploma Level 3 - Whiteboard";?></title>
-<link href="CSS/course.css" rel="stylesheet" type="text/css" />
+<link href="../CSS/course.css" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
-<script src="JS/functions.js"></script>
+<script src="../JS/functions.js"></script>
 </head>
 <body onload="loadafterlogin()" onresize="IDPanelPlacement()">
-<?php include'header.php';?>
+<?php include'../header.php';?>
 <div id="content">
 	<h2 align="center"> IT Extended Diploma Level 3</h2>
 <?php
@@ -42,7 +42,7 @@ include '../common.php';
         $_SESSION['user']['moodleusername'] = $newusername; 
          
         // This redirects the user back to the members-only page after they register 
-        header("Location: private.php"); 
+        header("Location: ../private.php"); 
          
         // Calling die or exit after performing a redirect using the header function 
         // is critical.  The rest of your PHP script will continue to execute and 
@@ -53,7 +53,7 @@ include '../common.php';
 ?> 
 
 <h1>Edit Account</h1> 
-<form action="edit_account.php" method="post"> 
+<form action="profile.php" method="post"> 
     Username:<br /> 
     <input type="text" name="username" value="<?php echo htmlentities($_SESSION['user']['moodleusername'], ENT_QUOTES, 'UTF-8'); ?>" /> 
     <br /><br />
@@ -65,10 +65,10 @@ include '../common.php';
     <input type="submit" value="Update Account" /> 
 </form>
 
-<a href="course.php">Go Back</a><br />
+<a href="../course.php">Go Back</a><br />
 
 </div>
 <br/>
-<?php include'footer.php';?>
+<?php include'../footer.php';?>
 </body>
 </html>
