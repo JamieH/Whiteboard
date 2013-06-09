@@ -120,7 +120,7 @@ $options = array(
     ),
 );
 $context  = stream_context_create($options);
-$result = file_get_contents($authurl, false, $result);
+$result = file_get_contents($authurl, false, $context);
 
 $doc = phpQuery::newDocumentHTML($result);
 phpQuery::selectDocument($doc);
