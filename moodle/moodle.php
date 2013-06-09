@@ -130,7 +130,7 @@ foreach(pq('li') as $li) {
         // iteration returns PLAIN dom nodes, NOT phpQuery objects
         $tagName = $li->tagName;
         $childNodes = $li->childNodes;
-        print_r ($li);
+        print $tagName;
 }
 
 }
