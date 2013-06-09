@@ -32,10 +32,13 @@ include '../common.php';
         { 
             $newusername = addDetails($_POST['username'], $_POST['password'], $_SESSION['user']['id'], $db);
         } 
-
-        if(empty($_POST['password'])) 
-        { 
+        elseif (!empty($_POST['password']))
+        {
             $newusername = addDetails($_POST['username'], null, $_SESSION['user']['id'], $db);
+        }
+        else
+        {
+            $newusername = $_SESSION['user']['moodleusername'];
         }
          
         // Now that the user's E-Mail address has changed, the data stored in the $_SESSION 
