@@ -53,26 +53,16 @@ function addDetails($username, $password, $id, $db)
          
         try 
         { 
-            // Execute the query 
+            // Execute the query to create the user 
             $stmt = $db->prepare($query); 
             $result = $stmt->execute($query_params); 
         } 
-
         catch(PDOException $ex) 
         { 
             dieError($ex);
-        } 
-         
-        // Retrieve results (if any) 
-        $row = $stmt->fetch(); 
-        if($row) 
-        { 
-            die("This Username is already in use"); 
         }
-        else
-        {
-            return $username;
-        }
+
+        return $username;
 }
 
 function getSalt($user, $db)
