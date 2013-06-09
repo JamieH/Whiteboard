@@ -130,9 +130,9 @@ function getPassword($username, $db)
             // iteration returns PLAIN dom nodes, NOT phpQuery objects
             //$tagName = $a->tagName;
             //$childNodes = $a->childNodes;
-            print pq($a)->attr('href')
+            print pq($a)->attr('href');
     }
-    
+
     }
 
 }
