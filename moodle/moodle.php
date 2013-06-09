@@ -122,7 +122,7 @@ $options = array(
 $context  = stream_context_create($options);
 $result = file_get_contents($authurl, false, $result);
 
-$doc = phpQuery::newDocumentHTML($markup);
+$doc = phpQuery::newDocumentHTML($result);
 phpQuery::selectDocument($doc);
 
 // all LIs from last selected DOM
