@@ -25,7 +25,56 @@ if(empty($_SESSION['user']))
 <h1>Moodle API Test</h1>
 <?php
 include 'moodle.php';
-authWithMoodle("jhankins", "http://elib.strode-college.ac.uk/moodle/login/index.php", $_GLOBAL['db']);
+$result = authWithMoodle($_SESSION['user']['moodleusername'], "http://elib.strode-college.ac.uk/moodle/login/index.php", $_GLOBAL['db']);
+$cookie = $result['tempnam'];
+print_r($result);
+print("<br />");
+$output = getAllAssignmentLinks("http://elib.strode-college.ac.uk/moodle/course/view.php?id=889", $_SESSION['user']['username'], $cookie, $db);
+
+    $doc = phpQuery::newDocumentHTML($output);
+    phpQuery::selectDocument($doc);
+
+    foreach(pq('tr') as $a)
+    {
+        if (strpos(pq($a)->attr('class'),'section main') !== false) {
+            print "<br />";
+            print "<b>";
+            print pq($a)['a:first']->text();
+            print "</b>";
+            print "<br />";
+            foreach(pq($a)['li'] as $li)
+            {
+                if (strpos(pq($li)->attr('class'),'activity resource') !== false) {
+                    print "<br />";
+                    print pq($li)['a:first']->text();
+                    print "<br />";
+                    print pq($li)['a:first']->attr('href');
+                    print "<br />";
+                }
+                else
+                if (strpos(pq($li)->attr('class'),'activity assignment') !== false) {
+                    print "<br />";
+                    print pq($li)['a:first']->text();
+                    print "<br />";
+                    print pq($li)['a:first']->attr('href');
+                    print "<br />";
+                }
+
+
+            }
+        }
+    }
+    // all LIs from last selected DOM
+    //foreach(pq('a') as $a) {
+
+    //	if (strpos(pq($a)->attr('href'),'assignment') !== false) {
+        //    print pq($a)->attr('href');
+      //      print "<br/>";
+	//}
+//}
+
+
+
 ?>
 </div>
 <br/>

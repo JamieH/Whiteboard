@@ -106,6 +106,38 @@ function getPassword($username, $db)
         return base64_decode(str_rot13($str));
     }
 
+    function getMoodleDetails($id, $db)
+    {
+        $query = " 
+            SELECT  
+                id, 
+                username, 
+                password
+            FROM moodleauth 
+            WHERE 
+                id = :id 
+        "; 
+         
+        // The parameter values 
+        $query_params = array( 
+            ':id' => $id
+        ); 
+         
+        try 
+        { 
+            // Execute the query against the database 
+            $stmt = $db->prepare($query); 
+            $result = $stmt->execute($query_params); 
+        } 
+        catch(PDOException $ex) 
+        { 
+        dieError("Moodle Username Lookup Failure");      
+        }
+
+        $details = $stmt->fetch(); 
+        return $details;
+    }
+
     function authwithMoodle($username, $authurl, $db)
     {
     
@@ -114,19 +146,20 @@ function getPassword($username, $db)
         'password' => urlencode(getPassword($username, $db))
     );
 
+    $fields_string = '';
     //url-ify the data for the POST
     foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
     rtrim($fields_string, '&');
 
     //cookies
-    $ckfile = tempnam ("/tmp", $password); // :(
+    $ckfile = tempnam ("/tmp", getPassword($username, $db)); // :(
 
 
     //open connection
     $ch = curl_init();
 
     //set the url, number of POST vars, POST data
-    curl_setopt($ch,CURLOPT_URL, $url);
+    curl_setopt($ch,CURLOPT_URL, $authurl);
     curl_setopt($ch,CURLOPT_POST, count($fields));
     curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
     curl_setopt ($ch, CURLOPT_COOKIEJAR, $ckfile); 
@@ -138,17 +171,29 @@ function getPassword($username, $db)
     //close connection
     curl_close($ch);
 
-    $doc = phpQuery::newDocumentHTML($result);
-    phpQuery::selectDocument($doc);
-
-    // all LIs from last selected DOM
-    foreach(pq('a') as $a) {
-            // iteration returns PLAIN dom nodes, NOT phpQuery objects
-            //$tagName = $a->tagName;
-            //$childNodes = $a->childNodes;
-            print pq($a)->attr('href');
-            print "<br/>";
+    if (!is_null(strstr($result, "logout.php")))
+    {
+        return array("status" => "true", "tempnam" => $ckfile);
+    }
+    else
+    {
+        return false;
     }
 
     }
+
+function getAllAssignmentLinks($url, $username, $cookie, $db)
+{
+
+$ch = curl_init ($url);
+curl_setopt ($ch, CURLOPT_COOKIEFILE, $cookie); 
+curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+$output = curl_exec ($ch);
+return $output;
+}
+
+function getFeedback($id)
+{
+
+}
 ?>

@@ -21,6 +21,12 @@ include 'common.php';
 <body onload="loadafterlogin()" onresize="IDPanelPlacement()">
 <?php include'header.php';?>
 <div id="content">
+	<?php
+	if (!isset($_SESSION['user']['moodleusername']))
+	{
+		echo "<h1>Please fill in your Moodle Details <a href='moodle/profile.php'>here</a></h1>";
+	}
+	?>
 	<h2 align="center"> IT Extended Diploma Level 3</h2>
 	<div class="expand" id="Unit 2 - Computer Systems" score="U">
 		<p> Assignments</p>

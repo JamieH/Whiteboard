@@ -23,6 +23,7 @@ include '../common.php';
 <div id="content">
 	<h2 align="center"> IT Extended Diploma Level 3</h2>
 <?php
+error_reporting(0); //Fix Headers and Notices
     include 'moodle.php';
     if(!empty($_POST)) 
     {
@@ -67,9 +68,8 @@ include '../common.php';
 <h1>Edit Moodle Account</h1> 
 <form action="profile.php" method="post"> 
     Username:<br /> 
-    <input type="text" name="username" value="<?php echo htmlentities($_SESSION['user']['moodleusername'], ENT_QUOTES, 'UTF-8'); ?>" /> 
+    <input type="text" name="username" value="<?php if (isset($_SESSION['user']['moodleusername'])){echo htmlentities($_SESSION['user']['moodleusername'], ENT_QUOTES, 'UTF-8');}?>"/>
     <br /><br />
-
     Password:<br /> 
     <input type="password" name="password" value="" /><br /> 
     <i>(Leave this blank if you don't want to change your password)</i> 
