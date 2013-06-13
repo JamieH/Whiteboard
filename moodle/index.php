@@ -27,7 +27,6 @@ if(empty($_SESSION['user']))
 include 'moodle.php';
 $result = authWithMoodle($_SESSION['user']['moodleusername'], "http://elib.strode-college.ac.uk/moodle/login/index.php", $_GLOBAL['db']);
 $cookie = $result['tempnam'];
-print_r($result);
 print("<br />");
 $output = getAllAssignmentLinks("http://elib.strode-college.ac.uk/moodle/course/view.php?id=889", $_SESSION['user']['username'], $cookie, $db);
 
