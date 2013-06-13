@@ -1,6 +1,6 @@
 <?php
 include '../common.php';
-    
+    set_time_limit(0);
 if(empty($_SESSION['user'])) 
     { 
         // If they are not, we redirect them to the login page. 
@@ -44,7 +44,7 @@ $output = getAllAssignmentLinks("http://elib.strode-college.ac.uk/moodle/course/
             print "<br />";
             foreach(pq($a)['li'] as $li)
             {
-                if (strpos(pq($li)->attr('class'),'activity resource') !== false) {
+                if (strpos(pq($li)->attr('class'),'activity resource') !== false and !is_null(pq($li)['a:first']->text())) {
                     print "<br />";
                     print pq($li)['a:first']->text();
                     print "<br />";
@@ -52,29 +52,23 @@ $output = getAllAssignmentLinks("http://elib.strode-college.ac.uk/moodle/course/
                     print "<br />";
                 }
                 else
-                if (strpos(pq($li)->attr('class'),'activity assignment') !== false) {
+                if (strpos(pq($li)->attr('class'),'activity assignment') !== false and !is_null(pq($li)['a:first']->text())) {
                     print "<br />";
                     print pq($li)['a:first']->text();
+                    //$feedback = getFeedback(pq($li)['a:first']->attr('href'), $cookie);
+                    //phpQuery::selectDocument($feedback);
+                    //print pq($li)["a.comment:first"]->text();
+                    //phpQuery::selectDocument($doc);
                     print "<br />";
                     print pq($li)['a:first']->attr('href');
                     print "<br />";
                 }
 
-
             }
         }
     }
-    // all LIs from last selected DOM
-    //foreach(pq('a') as $a) {
 
-    //	if (strpos(pq($a)->attr('href'),'assignment') !== false) {
-        //    print pq($a)->attr('href');
-      //      print "<br/>";
-	//}
-//}
-
-
-
+print getFeedback("http://elib.strode-college.ac.uk/moodle/mod/assignment/view.php?id=46003", $cookie);
 ?>
 </div>
 <br/>

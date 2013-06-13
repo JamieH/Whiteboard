@@ -184,7 +184,6 @@ function getPassword($username, $db)
 
 function getAllAssignmentLinks($url, $username, $cookie, $db)
 {
-
 $ch = curl_init ($url);
 curl_setopt ($ch, CURLOPT_COOKIEFILE, $cookie); 
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
@@ -192,8 +191,20 @@ $output = curl_exec ($ch);
 return $output;
 }
 
-function getFeedback($id)
+function getFeedback($url, $cookie)
 {
+    $ch = curl_init ($url);
+    curl_setopt ($ch, CURLOPT_COOKIEFILE, $cookie); 
+    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+    $output = curl_exec ($ch);
 
+    phpQuery::selectDocument(phpQuery::newDocumentHTML($output));
+    foreach(pq('div') as $p)
+    {
+        if (strpos(pq($p)->attr('class'),'comment') !== false) {
+            $output = strip_tags(pq($p)->html(), '<p>');
+        }
+    }
+    return $output;
 }
 ?>
