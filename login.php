@@ -78,7 +78,8 @@
         {
             unset($row['salt']); 
             unset($row['password']); 
-            $row['moodleusername'] = getMoodleDetails($row['id'], $db)['username'];
+            $moodleArray = getMoodleDetails($row['id'], $db);
+            $row['moodleusername'] = $moodleArray['username'];
            // This stores the user's data into the session at the index 'user'. 
             // We will check this index on the private members-only page to determine whether 
             // or not the user is logged in.  We can also use it to retrieve 
