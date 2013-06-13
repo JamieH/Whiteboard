@@ -14,7 +14,7 @@ body{
 	color: white;
 }
 #mainbackground{
-	background: url('../Images/textured_paper.png');
+	background: url('moulin.png');
 	width: 90%;
 	height: 110%;
 	margin-top: -12px;

@@ -12,7 +12,7 @@ body{
 	font-family: Font;
 	color: rgba(40,40,40,1);
 	//background: rgba(250,250,250,1);
-	background: url('../Images/textured_paper.png');
+	background: url('moulin.png');
 }
 #content{
 	border-radius: 2px;
@@ -65,7 +65,7 @@ body{
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	height: 22px;
-	background: url('../Images/mesh.png');
+	background: url('moulin.png');
 	text-align: center;
 	padding-top: 10px;
 	position: absolute;
