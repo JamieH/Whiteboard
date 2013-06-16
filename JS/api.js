@@ -9,13 +9,12 @@ function loopUnits(){
 $.get('moodle/api.php',{action: "listunits"}).done(function(data) {
             data = JSON.parse(data);
             $.each(data, function (index, item) {
-                console.log(item);
-                addUnit(item);
+            	addUnit(item);
             });
 
 });
 }
 
 function addUnit(name){
-
+$(".container:eq(1)").append('<div class="btn-group btn-block"><a class="btn btn-info btn-large btn-block btn-primary dropdown-toggle" data-toggle="dropdown" href="#">' + name + '<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#">Get Assignments</a></li><li><a href="#">View Resources</a></li><li><a href="#">Get Feedback</a></li></ul></div>');
 }
