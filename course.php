@@ -34,8 +34,8 @@
           <a class="brand" href="#">Whiteboard</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="profile.html">Profile</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="profile.php">Profile</a></li>
               <li><a href="Assignments">Assignments</a></li>
               <li><a href="Assignments">Tracking Sheet</a></li>
               <li><a href="Assignments">Logout</a></li>

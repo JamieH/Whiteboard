@@ -17,6 +17,10 @@ if ($_POST['action'] = "auth" and is_null($_SESSION['user']['cookie']))
 $result = authWithMoodle($_SESSION['user']['moodleusername'], "http://elib.strode-college.ac.uk/moodle/login/index.php", $_GLOBAL['db']);
 $_SESSION['user']['cookie'] = $result['tempnam'];
 }
+else
+{
+    echo "Alredy authed";
+}
 
 if (!is_null($_SESSION['user']['cookie']))
 {
