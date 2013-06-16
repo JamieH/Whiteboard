@@ -10,12 +10,12 @@ $.get('moodle/api.php',{action: "listunits"}).done(function(data) {
             data = JSON.parse(data);
             $.each(data, function (index, item) {
                 console.log(item);
+                addUnit(item);
             });
 
 });
 }
 
-function addUnit(){
+function addUnit(name){
 
-	
 }
