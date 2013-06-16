@@ -30,7 +30,6 @@ if (!is_null($_SESSION['user']['cookie']))
 		$output = getAllAssignmentLinks("http://elib.strode-college.ac.uk/moodle/course/view.php?id=889", $_SESSION['user']['cookie']);
 		$doc = phpQuery::newDocumentHTML($output);
     	phpQuery::selectDocument($doc);
-        echo $doc;
     	$array = array();
 		foreach(pq('tr') as $a)
     	{
