@@ -24,8 +24,8 @@ function removeall(){
 		$('h4:contains("Feedback")').remove();
 	}
 	for(var i = 0; i < $('div').length; i++){
-		if($('div').attr('id') == "units"){
-			$('div').remove();
+		if($('div:eq(' + i + ')').attr('id') == "unit"){
+			$('div:eq(' + i + ')').remove();
 		}
 	}
 }
