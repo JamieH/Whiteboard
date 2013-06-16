@@ -11,17 +11,37 @@ include 'common.php';
     } 
 ?>
 
-<html>
-<head>
-<title><?php echo "IT Extended Diploma Level 3 - Whiteboard";?></title>
-<link href="CSS/course.css" rel="stylesheet" type="text/css" />
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
-<script src="JS/functions.js"></script>
-</head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Whiteboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="CSS/bootstrap.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="JS/bootstrap.js"></script>
+    <script src="JS/api.js"></script>
+
+    <link href="CSS/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+
 <body onload="loadafterlogin()" onresize="IDPanelPlacement()">
 <?php include'header.php';?>
 <div id="content">
 	<h2 align="center"> IT Extended Diploma Level 3</h2>
+
+
+
 <?php
     if(!empty($_POST)) 
     { 
@@ -47,9 +67,8 @@ include 'common.php';
         // will be sent to the user if you do not die or exit. 
         die("Redirecting to private.php"); 
     } 
-     
 ?> 
-
+<div class="container">
 <h1>Edit Account</h1> 
 <form action="edit_account.php" method="post"> 
     Username:<br /> 
@@ -66,9 +85,10 @@ include 'common.php';
 </form>
 
 <a href="course.php">Go Back</a><br />
-
+</div>
 </div>
 <br/>
+
 <?php include'footer.php';?>
 </body>
 </html>

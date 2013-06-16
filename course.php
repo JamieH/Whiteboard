@@ -84,5 +84,7 @@ Assignment one, P1 M1, D1
 Assignment Two, P1 M1, D1
 </div>
 <div>
+  <?php include'footer.php'; ?>
+
   </body>
 </html>
