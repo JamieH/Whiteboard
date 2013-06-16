@@ -19,7 +19,6 @@ $_SESSION['user']['cookie'] = $result['tempnam'];
 }
 else
 {
-    echo "Alredy authed";
 }
 
 if (!is_null($_SESSION['user']['cookie']))
