@@ -10,9 +10,9 @@
     <!-- Le styles -->
     <link href="CSS/bootstrap.css" rel="stylesheet">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script src="JS/api.js"</script>
-
     <script src="JS/bootstrap.js"></script>
+    <script src="JS/api.js"></script>
+
     <link href="CSS/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
