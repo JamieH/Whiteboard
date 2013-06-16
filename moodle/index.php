@@ -1,6 +1,5 @@
 <?php
 include '../common.php';
-    set_time_limit(0);
 if(empty($_SESSION['user'])) 
     { 
         // If they are not, we redirect them to the login page. 

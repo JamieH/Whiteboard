@@ -1,0 +1,83 @@
+<html>
+	<head><title>Whiteboard | Home</title>
+	<link href="CSS/bootstrap.css" rel="stylesheet" type="text/css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+	<script src="JS/functions.js"></script>
+  <script>
+    $(document).ready(function() {
+    $.get("php/footer.php")
+.done(function(data) {
+    $("#replaceme").html(data);
+  });
+
+    $.get("php/header.php")
+.done(function(data) {
+    $("#header").html(data);
+  });
+
+    });
+</script>
+  <style>
+        html,
+      body {
+        height: 100%;
+      }
+
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -60px;
+      }
+
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+      .container {
+        width: auto;
+        max-width: 680px;
+      }
+
+      .container .credit {
+        margin: 20px 0;
+      }
+      </style>
+	</head>
+
+<body onload="loadafterlogin()" onresize="IDPanelPlacement()">
+  <div id="header"></div>
+
+    <div id="wrap">
+
+      <div class="container">
+        <div class="page-header">
+          <h1>Sticky footer</h1>
+        </div>
+        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
+        <p>Use <a href="./sticky-footer-navbar.html">the sticky footer</a> with a fixed navbar if need be, too.</p>
+      </div>
+
+      <div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit"><span id="replaceme"></span></p>
+      </div>
+    </div>
+</body>
+</html>

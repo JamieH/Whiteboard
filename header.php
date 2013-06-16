@@ -1,7 +1,65 @@
-	<div id="IDPanel"> <?php echo ucfirst(strtolower(htmlentities($_SESSION['user']['username'], ENT_QUOTES, "UTF-8"))); ?> 
-		<li><a href="https://docs.google.com/spreadsheet/ccc?key=0Ar405A90uLjQdHpBU210ZmVoNXVZZ1lMZzZtYmg2NkE#gid=18">Tracking Sheet</a></li>
-		<li><a href="https://adfs.strode-college.ac.uk/CookieAuth.dll?GetLogon?curl=Z2FadfsZ2FlsZ2FZ3FwaZ3Dwsignin1.0Z26wtrealmZ3DurnZ3AfederationZ3AMicrosoftOnlineZ26wctxZ3DwaZ253Dwsignin1.0Z2526rpsnvZ253D2Z2526ctZ253D1370532248Z2526rverZ253D6.1.6206.0Z2526wpZ253DMBI_KEYZ2526wreplyZ253DhttpsZ3AZ25252FZ25252Famxprd0112.outlook.comZ25252FowaZ25252FZ2526idZ253D260563Z2526whrZ253Dstudent.strode-college.ac.ukZ2526CBCXTZ253Dout&reason=0&formdir=6">Email</a></li>
-		<li><a href="http://elib.strode-college.ac.uk">Other Links</a></li>
-		<li><a href="profile.php">My Profile</a></li>
-		<li><a href="logout.php">Log-out</a></li>
-	</div>
+<?php include'header.php';?>
+
+
+<div id="content">
+  <?php
+  if (!isset($_SESSION['user']['moodleusername']))
+  {
+    echo "<h1>Please fill in your Moodle Details <a href='moodle/profile.php'>here</a></h1>";
+  }
+  ?>
+
+    <div id="header"></div>
+
+    <div id="wrap">
+
+      <div class="container">
+        <div class="page-header">
+  <h2 align="center"> IT Extended Diploma Level 3</h2>
+        </div>
+        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
+        <p>Use <a href="./sticky-footer-navbar.html">the sticky footer</a> with a fixed navbar if need be, too.</p>
+
+
+
+  <div class="expand" id="Unit 2 - Computer Systems" score="U">
+    <p> Assignments</p>
+    <p> Upload Area</p>
+    <p class="upload"> upload area 1</p>
+    <p> <a href="course_view.php?ref=IT+Extended+Diploma+Level+3">More information on this course.</a></p>
+  </div>
+  <div class="expand"  id="Unit 6 - Computer Systems" score="P">
+    <p> Assignments</p>
+    <p> Upload Area</p>
+    <p class="upload"> upload area 1</p>
+    <p> <a href="">More information on this course.</a></p>
+  </div>
+  <div class="expand"   id="Unit 14 - Computer Systems" score="M">
+    <p> Assignments</p>
+    <p> Upload Area</p>
+    <p class="upload"> upload area 1</p>
+    <p> <a href="">More information on this course.</a></p>
+  </div>
+  <div class="expand"   id="Unit 28 - Computer Systems" score="D">
+    <p> Assignments</p>
+    <p> Upload Area</p>
+    <p class="upload"> upload area 1</p>
+    <p> <a href="">More information on this course.</a></p>
+  </div>
+  <div class="expand"  id="Unit 21 - Computer Systems" score="U">
+    <p> Assignments</p>
+    <p> Upload Area</p>
+    <p class="upload"> upload area 1</p>
+    <p> <a href="">More information on this course.</a></p>
+  </div>
+</div>
+      </div>
+
+</div>
+
+    <div id="push"></div>
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit"><?php include'footer.php';?></p>
+      </div>
+    </div>

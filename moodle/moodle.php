@@ -182,7 +182,7 @@ function getPassword($username, $db)
 
     }
 
-function getAllAssignmentLinks($url, $username, $cookie, $db)
+function getAllAssignmentLinks($url, $cookie)
 {
 $ch = curl_init ($url);
 curl_setopt ($ch, CURLOPT_COOKIEFILE, $cookie); 
