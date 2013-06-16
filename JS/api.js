@@ -21,9 +21,7 @@ function removeall(){
 		$('.well:eq(' + i + ')').remove();
 	}
 	for(var i = 0; i < $('h4').length; i++){
-		if($('h4:eq(' + i + ')').contains("Feedback")){
-			$('h4:eq(' + i + ')').remove();
-		}
+		$('h4:contains("Feedback")').remove();
 	}
 	for(var i = 0; i < $('div').length; i++){
 		if($('div').attr('id') == "units"){
