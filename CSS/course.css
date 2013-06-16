@@ -8,6 +8,7 @@ src: url('../Fonts/font.ttf'); /* IE9+ */
 font-family: WhiteboardFont;
 src: url('../Fonts/ComingSoon.ttf'); /* IE9+ */
 }
+
 body{
 	font-family: Font;
 	color: rgba(40,40,40,1);

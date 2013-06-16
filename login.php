@@ -71,26 +71,20 @@
                 $login_ok = true; 
             } 
         } 
-         
-        // If the user logged in successfully, then we send them to the private members-only page 
-        // Otherwise, we display a login failed message and show the login form again 
+        
         if($login_ok) 
         {
             unset($row['salt']); 
             unset($row['password']); 
             $row['moodleusername'] = getMoodleDetails($row['id'], $db)['username'];
-           // This stores the user's data into the session at the index 'user'. 
-            // We will check this index on the private members-only page to determine whether 
-            // or not the user is logged in.  We can also use it to retrieve 
-            // the user's details. 
-            $_SESSION['user'] = $row; 
 
-            print ("true");
+            $_SESSION['user'] = $row; 
+            header("Location: course.php"); 
         } 
         else 
         { 
             // Tell the user they failed 
-            print("false"); 
+            header("Location: index.php"); 
         } 
     }
      
