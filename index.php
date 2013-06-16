@@ -1,5 +1,5 @@
 <?php
-if(empty($_SESSION['user'])) 
+if(!empty($_SESSION['user'])) 
     { 
         // If they are, we redirect them to the login page. 
         header("Location: course.php"); 
