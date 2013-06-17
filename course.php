@@ -50,41 +50,8 @@
 		<h2 align="center"> IT Extended Diploma Level 3</h2>
     </div>
 
-    <div class="btn-group btn-block">
-  <a class="btn btn-info btn-large btn-block btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-    Action
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu">
-<li><a href="#">Get Assignments</a></li>
-<li><a href="#">View Resources</a></li>
-<li><a href="#">Get Feedback</a></li>
-</ul>
-</div>
 
 
-
-<div id="units">
-  <div id="unit">
-  <h4>Assignments for <span class="badge">Unit</span></h4>
-  <div class="btn-group">
-    <button class="btn btn-primary">Left</button>
-    <button class="btn btn-primary">Middle</button>
-    <button class="btn btn-primary">Right</button>
-  </div>
-</div>
-</div>
-<h4>Feedback for <span class="badge">Unit</span></h4>
-<div class="well">
-<h4>Assignment One</h4>
-Assignment one, P1 M1, D1
-</div>
-<div class="well">
-<h4>Assignment Two</h4>
-Assignment Two, P1 M1, D1
-</div>
-<div>
   <?php include'footer.php'; ?>
-
   </body>
 </html>
