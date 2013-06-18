@@ -2,8 +2,6 @@
 include '../common.php';
 include 'moodle.php';
 
-print $_GET['action'];
-
 if ($_GET['action'] === "auth") {
     if (is_null($_SESSION['user']['cookie'])) {
         $result = authWithMoodle($_SESSION['user']['moodleusername'], "http://elib.strode-college.ac.uk/moodle/login/index.php", $_GLOBAL['db']);
