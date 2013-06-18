@@ -49,6 +49,8 @@
     <div class="page-header">
 		<h2 align="center"> IT Extended Diploma Level 3</h2>
     </div>
+    <h2 id="remove">Please wait loading</h2>
+
 
 
 

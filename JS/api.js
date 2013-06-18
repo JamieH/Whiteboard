@@ -1,7 +1,15 @@
 function loginAuth(){
 $.get('moodle/api.php',{action: "auth"},  function(data) {
-  console.log('Load was performed.');
-  loopUnits();
+	if (data.indexOf('true') != -1)
+	{
+		console.log('Load was performed.');
+		loopUnits();
+	}
+	else
+	{
+        $(".container:eq(1)").append('<h1> There has been an error. Make sure your moodle information is correct!</h1>');
+	}
+
 });
 }
 
@@ -9,13 +17,14 @@ function loopUnits(){
 $.get('moodle/api.php',{action: "listunits"}).done(function(data) {
             data = JSON.parse(data);
             $.each(data, function (index, item) {
-            	$(".container:eq(1)").append('<div class="btn-group btn-block"><a class="btn btn-info btn-large btn-block btn-primary dropdown-toggle" data-toggle="dropdown" href="#">' + item + '<span class="caret"></span></a><ul class="dropdown-menu"><li onclick="removeall()">Get Assignments</li><li><a href="#">View Resources</a></li><li><a href="#">Get Feedback</a></li></ul></div>');
+           	$(".container:eq(1)").append('<div class="btn-group btn-block"><a class="btn btn-info btn-large btn-block btn-primary dropdown-toggle" data-toggle="dropdown" href="#">' + item + '<span class="caret"></span></a><ul class="dropdown-menu"><li onclick="removeall()">Get Assignments</li><li><a href="#">View Resources</a></li><li><a href="#">Get Feedback</a></li></ul></div>');
                 //console.log(item);
             	addUnit(item);
             });
-
+            $('#remove').remove();
 });
 }
+
 function removeall(){
 	for(var i = 0; i < $('.well').length; i++){
 		$('.well:eq(' + i + ')').remove();
@@ -31,3 +40,4 @@ function removeall(){
 }
 function addUnit(){
 }
+

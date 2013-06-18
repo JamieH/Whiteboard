@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(!empty($_SESSION['user'])) 
     { 
         // If they are, we redirect them to the login page. 
