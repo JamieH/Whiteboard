@@ -13,6 +13,34 @@
     <script src="JS/bootstrap.js"></script>
     <script src="JS/api.js"></script>
 
+    <!-- Hack to get non A links in the button for JS -->
+    <style>
+.dropdown-menu > li > span {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 21px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.dropdown-menu > li > span:hover,
+.dropdown-menu > li > span:focus,
+.dropdown-submenu:hover > span,
+.dropdown-submenu:focus > span {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #17b394;
+  background-image: -moz-linear-gradient(top, #18bc9c, #15a589);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#18bc9c), to(#15a589));
+  background-image: -webkit-linear-gradient(top, #18bc9c, #15a589);
+  background-image: -o-linear-gradient(top, #18bc9c, #15a589);
+  background-image: linear-gradient(to bottom, #18bc9c, #15a589);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff18bc9c', endColorstr='#ff15a589', GradientType=0);
+}
+</style>
     <link href="CSS/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->

@@ -27,7 +27,7 @@ include 'moodle.php';
 $result = authWithMoodle($_SESSION['user']['moodleusername'], "http://elib.strode-college.ac.uk/moodle/login/index.php", $_GLOBAL['db']);
 $cookie = $result['tempnam'];
 print("<br />");
-$output = getAllAssignmentLinks("http://elib.strode-college.ac.uk/moodle/course/view.php?id=889", $_SESSION['user']['username'], $cookie, $db);
+$output = getAllAssignmentLinks("http://elib.strode-college.ac.uk/moodle/course/view.php?id=889", $cookie);
 
     $doc = phpQuery::newDocumentHTML($output);
     phpQuery::selectDocument($doc);
@@ -53,10 +53,9 @@ $output = getAllAssignmentLinks("http://elib.strode-college.ac.uk/moodle/course/
                 if (strpos(pq($li)->attr('class'),'activity assignment') !== false and !is_null(pq($li)['a:first']->text())) {
                     print "<br />";
                     print pq($li)['a:first']->text();
-                    //$feedback = getFeedback(pq($li)['a:first']->attr('href'), $cookie);
-                    //phpQuery::selectDocument($feedback);
-                    //print pq($li)["a.comment:first"]->text();
-                    //phpQuery::selectDocument($doc);
+
+                    print getFeedback(pq($li)['a:first']->attr('href'), $_SESSION['user']['cookie']);
+
                     print "<br />";
                     print pq($li)['a:first']->attr('href');
                     print "<br />";
