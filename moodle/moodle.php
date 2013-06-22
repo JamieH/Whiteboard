@@ -197,8 +197,7 @@ function getFeedback( $url, $cookie ) {
 function renameFile($content_type, $file)
 {
     if (file_exists($file)) {
-    header('Content-Description: File Transfer');
-    header('Content-Type: application/octet-stream');
+
 
     if ($content_type === "application/msword")
     {
@@ -209,14 +208,24 @@ function renameFile($content_type, $file)
         $name = "assignment.pptx";
 
     }
-    elseif ($content_type === "example")
+    elseif ($content_type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
     {
+        $name = "assignment.docx";
 
     }
+    elseif ($content_type === "text/html; charset=utf-8")
+    {
+        $name = "assignment.docx";
+
+    }
+
+
     else
     {
-        $name = "unknown.txt";
+        return "unknown format" + $content_type;
     }
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
     header('Content-Disposition: attachment; filename='.basename($name));
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
@@ -227,6 +236,7 @@ function renameFile($content_type, $file)
     flush();
     readfile($file);
     exit;
+
 }
 
 

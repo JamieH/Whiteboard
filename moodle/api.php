@@ -180,7 +180,7 @@ if ( $_GET['action'] === "auth" ) {
     if ( $_GET['action'] === "getresource" ) {
         if ( is_numeric( $_GET['id'] ) ) {
             $RID = $_GET['id'];
-            print getResource( "http://elib.strode-college.ac.uk/moodle/mod/resource/view.php?id=" . $RID, $_SESSION['user']['cookie'] );
+            print getResource( "http://elib.strode-college.ac.uk/moodle/mod/resource/view.php?inpopup=true&id=" . $RID, $_SESSION['user']['cookie'] );
         }
     }
 

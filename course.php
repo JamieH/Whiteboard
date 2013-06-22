@@ -50,9 +50,9 @@
             <ul class="nav">
               <li><a href="index.php">Home</a></li>
               <li><a href="profile.php">Profile</a></li>
-              <li><a href="Assignments">Assignments</a></li>
-              <li><a href="Assignments">Tracking Sheet</a></li>
-              <li><a href="Assignments">Logout</a></li>
+              <li><a href="#">Assignments</a></li>
+              <li><a href="#">Tracking Sheet</a></li>
+              <li><a href="logout.php">Logout</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
