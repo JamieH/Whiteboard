@@ -19,7 +19,8 @@
                 username, 
                 password, 
                 salt, 
-                email 
+                email,
+                theme
             FROM users 
             WHERE 
                 username = :username 

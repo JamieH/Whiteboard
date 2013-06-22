@@ -45,7 +45,8 @@ function tryLogin( $username, $password ) {
                 username,
                 password,
                 salt,
-                email
+                email,
+                skin
             FROM users
             WHERE
                 username = :username
@@ -107,7 +108,7 @@ function editPassword( $email, $password ) {
     $stmt->bindParam( ':pass', $password, PDO::PARAM_STR, 300 );
     $stmt->execute();
 }
-function editEmail( $email, $newemail, $userid ) {
+function editEmail( $email, $newemail, $db ) {
     if ( !filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
         die( "Invalid E-Mail Address" );
     }
@@ -136,6 +137,15 @@ function editEmail( $email, $newemail, $userid ) {
         return $email;
     }
 }
+
+function editSkin($username, $skin, $db) {
+    $stmt = $db->prepare( "UPDATE users SET theme=:theme WHERE username = :user" );
+    $stmt->bindParam( ':user', $username, PDO::PARAM_STR, 300 );
+    $stmt->bindParam( ':theme', $skin, PDO::PARAM_STR, 300 );
+    $stmt->execute();
+}
+
+
 //End of Funcs
 $options = array( PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8' );
 try {

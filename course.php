@@ -6,8 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interface built for Moodle">
     <meta name="author" content="Jamie Hankins">
+    <?php
+        session_start();
 
-    <link href="CSS/bootstrap.css" rel="stylesheet">
+    if (isset($_SESSION['user']['theme']))
+    {
+      if (file_exists("CSS/themes/".$_SESSION['user']['theme']))
+      {
+        echo '<link href="CSS/themes/' . $_SESSION['user']['theme'] . '" rel="stylesheet">';
+      }
+      else
+      {
+      echo '<link href="CSS/themes/flatly.css" rel="stylesheet">';
+      }
+    }
+    else
+    {
+      echo '<link href="CSS/themes/flatly.css" rel="stylesheet">';
+    }
+    ?>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -63,7 +80,6 @@
     <div class="page-header">
     <h2 align="center"> IT Extended Diploma Level 3</h2>
     <?php
-    session_start();
     if (!isset($_SESSION['user']['moodleusername']))
     {
     echo "<h3>Please fill in your Moodle Details <a href='moodle/profile.php'>here</a></h3>";
