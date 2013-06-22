@@ -142,7 +142,7 @@ function authwithMoodle( $username, $authurl, $db ) {
     rtrim( $fields_string, '&' );
 
     //cookies
-    $ckfile = tempnam( "/tmp", getPassword( $username, $db ) ); // :(
+    $ckfile = tempnam( "/tmp", "uniqueness" ); // :(
 
 
     //open connection
