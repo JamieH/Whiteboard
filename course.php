@@ -1,3 +1,16 @@
+<?php
+include 'common.php';
+    if(empty($_SESSION['user'])) 
+    { 
+        // If they are not, we redirect them to the login page. 
+        header("Location: index.php"); 
+         
+        // Remember that this die statement is absolutely critical.  Without it, 
+        // people can view your members-only content without logging in. 
+        die("Redirecting to login.html"); 
+    } 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,8 +20,7 @@
     <meta name="description" content="Interface built for Moodle">
     <meta name="author" content="Jamie Hankins">
     <?php
-        session_start();
-
+    
     if (isset($_SESSION['user']['theme']))
     {
       if (file_exists("CSS/themes/".$_SESSION['user']['theme']))
@@ -45,11 +57,6 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="JSo/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="JSo/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="JSo/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="JSo/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="JSo/favicon.png">
   </head>
 
   <body onload="loginAuth()">

@@ -22,11 +22,12 @@ include 'common.php';
 
     <!-- Le styles -->
     <?php
+    
     if (isset($_SESSION['user']['theme']))
     {
-      if (file_exists("themes/".$_SESSION['user']['theme'].".css"))
+      if (file_exists("CSS/themes/".$_SESSION['user']['theme']))
       {
-        echo '<link href="CSS/themes/' . $_SESSION['user']['theme'] . 'css" rel="stylesheet">';
+        echo '<link href="CSS/themes/' . $_SESSION['user']['theme'] . '" rel="stylesheet">';
       }
       else
       {
@@ -37,8 +38,7 @@ include 'common.php';
     {
       echo '<link href="CSS/themes/flatly.css" rel="stylesheet">';
     }
-
-    ?>    
+    ?>   
     <link href="CSS/bootstrap-responsive.css" rel="stylesheet">
     <link href="CSS/bootstrap-formhelpers.css" rel="stylesheet">
 
@@ -91,6 +91,30 @@ function getDirectoryList ($directory)
 
     if(!empty($_POST)) 
     { 
+        include '\moodle\moodle.php';
+
+        $newusername = '';
+
+        //if username is not the old one and password is not empty
+        if ( $_POST['username'] != $_SESSION['user']['moodleusername'] and !empty( $_POST['mpassword'] ) ) {
+            $newusername = addDetails( $_POST['musername'], rot13encrypt( $_POST['mpassword'] ), $_SESSION['user']['id'], $db );
+        }
+        //if username is not old one and password IS empty
+        elseif ( $_POST['username'] != $_SESSION['user']['moodleusername'] and empty( $_POST['mpassword'] ) ) {
+            $newusername = addDetails( $_POST['musername'], null, $_SESSION['user']['id'], $db );
+
+        }
+        //else if username is the same but password is different
+        elseif ( $_POST['username'] = $_SESSION['user']['moodleusername'] and !empty( $_POST['mpassword'] ) ) {
+            $newusername = addDetails( $_POST['musername'], rot13encrypt( $_POST['mpassword'] ), $_SESSION['user']['id'], $db );
+        }
+        else {
+            $newusername = $_SESSION['user']['moodleusername'];
+        }
+
+        // Now that the user's E-Mail address has changed, the data stored in the $_SESSION
+        // array is stale; we need to update it so that it is accurate.
+
         if($_POST['email'] != $_SESSION['user']['email']) 
         { 
             $newemail = editEmail($_SESSION['user']['email'], $_POST['email'], $db);
@@ -120,6 +144,7 @@ function getDirectoryList ($directory)
         // Now that the user's E-Mail address has changed, the data stored in the $_SESSION 
         // array is stale; we need to update it so that it is accurate. 
         $_SESSION['user']['email'] = $newemail; 
+        $_SESSION['user']['moodleusername'] = $newusername;
         $_SESSION['user']['theme'] = $theme;
         // This redirects the user back to the members-only page after they register 
         header("Location: course.php"); 
@@ -144,6 +169,20 @@ function getDirectoryList ($directory)
     <label class="control-label" for="email">Email</label>
     <div class="controls">
       <input type="text" name="email" value="<?php echo htmlentities($_SESSION['user']['email'], ENT_QUOTES, 'UTF-8'); ?>">
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label" for="musername">Moodle Username</label>
+    <div class="controls">
+      <input type="text" name="musername" value="<?php echo htmlentities($_SESSION['user']['moodleusername'], ENT_QUOTES, 'UTF-8'); ?>">
+    </div>
+  </div>
+
+    <div class="control-group">
+    <label class="control-label" for="mpassword">Moodle Password</label>
+    <div class="controls">
+      <input type="password" name="mpassword" placeholder="Moodle Password">
     </div>
   </div>
 
@@ -196,7 +235,5 @@ function getDirectoryList ($directory)
 </div>
 </div>
 <br/>
-
-<?php include'footer.php';?>
 </body>
 </html>
