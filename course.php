@@ -62,6 +62,12 @@
     <div class="container">
     <div class="page-header">
     <h2 align="center"> IT Extended Diploma Level 3</h2>
+    <?php
+      if (!isset($_SESSION['user']['moodleusername']))
+  {
+    echo "<h3>Please fill in your Moodle Details <a href='moodle/profile.php'>here</a></h3>";
+  }
+  ?>
     </div>
     <h2 id="remove">Please wait loading</h2>
     <div id="stuffhere">
