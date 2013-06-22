@@ -4,54 +4,40 @@
     <meta charset="utf-8">
     <title>Whiteboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Interface built for Moodle">
+    <meta name="author" content="Jamie Hankins">
 
-    <!-- Le styles -->
     <link href="CSS/bootstrap.css" rel="stylesheet">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script src="JS/bootstrap.js"></script>
-    <script src="JS/api.js"></script>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .row
+      {
+        padding-bottom: 5px;
+      }
 
-    <!-- Hack to get non A links in the button for JS -->
-    <style>
-.dropdown-menu > li > span {
-  display: block;
-  padding: 3px 20px;
-  clear: both;
-  font-weight: normal;
-  line-height: 21px;
-  color: #ffffff;
-  white-space: nowrap;
-}
+    </style>
 
-.dropdown-menu > li > span:hover,
-.dropdown-menu > li > span:focus,
-.dropdown-submenu:hover > span,
-.dropdown-submenu:focus > span {
-  color: #ffffff;
-  text-decoration: none;
-  background-color: #17b394;
-  background-image: -moz-linear-gradient(top, #18bc9c, #15a589);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#18bc9c), to(#15a589));
-  background-image: -webkit-linear-gradient(top, #18bc9c, #15a589);
-  background-image: -o-linear-gradient(top, #18bc9c, #15a589);
-  background-image: linear-gradient(to bottom, #18bc9c, #15a589);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff18bc9c', endColorstr='#ff15a589', GradientType=0);
-}
-</style>
     <link href="CSS/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+      <script src="JS/html5shiv.js"></script>
     <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="JSo/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="JSo/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="JSo/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="JSo/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="JSo/favicon.png">
   </head>
 
   <body onload="loginAuth()">
 
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -73,15 +59,31 @@
       </div>
     </div>
 
-<div class="container">
+    <div class="container">
     <div class="page-header">
-		<h2 align="center"> IT Extended Diploma Level 3</h2>
+    <h2 align="center"> IT Extended Diploma Level 3</h2>
     </div>
     <h2 id="remove">Please wait loading</h2>
+    <div id="stuffhere">
+
+    </div>
 
 
 
 
-  <?php include'footer.php'; ?>
+      <hr>
+
+      <footer>
+        <p>&copy; Jamie Hankins 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/api.js"></script>
   </body>
 </html>
