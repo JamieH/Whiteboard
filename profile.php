@@ -132,7 +132,14 @@ function getDirectoryList ($directory)
 
         if(empty($_POST['theme'])) 
         { 
+          if (!isset($_SESSION['theme']))
+          {
             $theme = "flatly.css";
+          }
+          else
+          {
+            $theme = $_SESSION['theme'];
+          }
         }
         else
         {
@@ -187,13 +194,13 @@ function getDirectoryList ($directory)
   </div>
 
   <div class="control-group">
-    <label class="control-label" for="theme">Theme</label>
+    <label class="control-label" for="theme">Theme. Want to create your own? Try <a href="http://www.lavishbootstrap.com/">this</a> or <a href="http://www.bootstrapthemeroller.com/twitter-bootstrap-themeroller.html">this</a>. Just give the admin the file to upload.</label>
     <div class="controls">
 
     <div class="bfh-selectbox">
   <input type="hidden" name="theme" value="">
   <a class="bfh-selectbox-toggle" role="button" data-toggle="bfh-selectbox" href="#">
-    <span class="bfh-selectbox-option input-medium" data-option="flatly.css">flatly.css</span>
+    <span class="bfh-selectbox-option input-medium" data-option="<?php echo htmlentities($_SESSION['user']['theme'], ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlentities($_SESSION['user']['theme'], ENT_QUOTES, 'UTF-8'); ?></span>
     <b class="caret"></b>
   </a>
   <div class="bfh-selectbox-options">

@@ -1,0 +1,27 @@
+# Sample '.htaccess' for 'pub' subdirectory
+
+# Allow all access
+Allow from all
+
+# Deny people from looking at the index and running SSI and CGI
+Options None
+
+# We need to protect the entire pub directory tree against any 
+# kind of script execution. TWiki has a renaming protection 
+# scheme that alters certain file names to prevent script 
+# execution but it may not be 100% safe only to rely on this. 
+# The safest protection is to disabled all scripting.
+
+# If you have PHP4 or PHP5 installed make sure the directive 
+# below is enabled. If you do not have PHP installed you will 
+# need to comment out the directory below to avoid errors:
+php_flag engine off
+
+# If you have PHP3 installed make sure the directive below is 
+# enabled:
+#php3_engine off
+
+# This line will redefine the mime type for the most common 
+# types of scripts. It will also deliver HTML files as if they 
+# are text files:
+AddType text/plain .html .htm .shtml .php .php3 .phtml .phtm .pl .py .cgi .doc .docx

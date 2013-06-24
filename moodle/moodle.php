@@ -194,36 +194,9 @@ function getFeedback( $url, $cookie ) {
     return $feedback;
 }
 
-function renameFile($content_type, $file)
+function serveFile($name, $path)
 {
-    if (file_exists($file)) {
-
-
-    if ($content_type === "application/msword")
-    {
-        $name = "assignment.doc";
-    }
-    elseif ($content_type === "application/vnd.ms-powerpoint")
-    {
-        $name = "assignment.pptx";
-
-    }
-    elseif ($content_type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
-    {
-        $name = "assignment.docx";
-
-    }
-    elseif ($content_type === "text/html; charset=utf-8")
-    {
-        $name = "assignment.docx";
-
-    }
-
-
-    else
-    {
-        return "unknown format" + $content_type;
-    }
+    if (file_exists($path)) {
     header('Content-Description: File Transfer');
     header('Content-Type: application/octet-stream');
     header('Content-Disposition: attachment; filename='.basename($name));
@@ -231,10 +204,10 @@ function renameFile($content_type, $file)
     header('Expires: 0');
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
-    header('Content-Length: ' . filesize($file));
+    header('Content-Length: ' . filesize($path));
     ob_clean();
     flush();
-    readfile($file);
+    readfile($path);
     exit;
 
 }
@@ -242,10 +215,36 @@ function renameFile($content_type, $file)
 
 }
 
+function uploadSomething($id, $cookie, $filepath)
+{
+// URL on which we have to post data
+$url = "http://elib.strode-college.ac.uk/moodle/mod/assignment/upload.php";
+// Any other field you might want to catch
+$post_data['id'] = $id;
+$post_data['action'] = "action";
+$post_data['save'] = "Upload this file";
+// File you want to upload/post
+$post_data['file'] = "@"+ $filepath;
+
+// Initialize cURL
+$ch = curl_init();
+// Set URL on which you want to post the Form and/or data
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_VERBOSE, 1);
+// Execute the request
+$response = curl_exec($ch);
+
+// Just for debug: to see response
+echo $response;
+}
+
 function getResource($url, $cookie)
 {
 
-    $path = "tmp";
+    $path = "../tmp/files/" . $_SESSION['user']['username'];
 
     $fh = fopen($path, 'w'); 
 
@@ -254,18 +253,13 @@ function getResource($url, $cookie)
     curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_exec($ch); 
-    $content_type = curl_getinfo($ch,CURLINFO_CONTENT_TYPE);
-
+    $response = curl_getinfo( $ch );
     curl_close($ch); 
-
-    # at this point your file is not complete and corrupted 
-
     fclose($fh); 
 
-    # now you can use your file; 
-    renameFile($content_type, $path);
-
-    return $content_type;
+    $output = explode("/", $response['url']);
+    serveFile($output[count($output) - 1], $path);
+    return "true";
 }
 
 ?>

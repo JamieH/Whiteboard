@@ -32,7 +32,10 @@ $.get('moodle/api.php',{action: "resources"}).done(function(data) {
 			var name = parseFloat(intRegex.exec(info[1]));
 			var rcount = ucount
 			$('#unit' + rcount).append('<div class="row" id=r' + name +'>')
-			$('#r' + name).append('<input onclick="getResource(this)" id="' + name + '" class="btn" type="button" value="' + info[0] +  '"/>')
+			$('#r' + name).append('<div id="s' + name + '" class="btn-group"></div>')
+			$('#s' + name).append('<button onclick="getResource(this)" class="btn" id="' + name + '" >' + info[0] + '</button>')
+
+
 
 				console.log(info[0])
 				console.log(name)
@@ -50,7 +53,6 @@ $.get('moodle/api.php',{action: "resources"}).done(function(data) {
             });
             $('#remove').remove();
 		loopUnits();
-
 });
 }
 
@@ -71,7 +73,10 @@ $.get('moodle/api.php',{action: "uanda"}).done(function(data) {
 			var name = parseFloat(intRegex.exec(info[1]));
 			var rcount = ucount
 			$('#unit' + rcount).append('<div class="row" id=r' + name +'>')
-			$('#r' + name).append('<input onclick="getFeedback(this)" id="' + name + '" class="btn btn-primary" type="button" value="' + info[0] +  '"/>')
+			$('#r' + name).append('<button onclick="getFeedback(this)" class="btn" id="' + name + '" >' + info[0] + '</button>')
+			$('#r' + name).append('<form class="fileupload" name="form" action="" method="POST" enctype="multipart/form-data"><input class="uneditable-input span3" id="assignment' + name + 'f" type="file" size="45" name="assignment' + name + 'f" class="input"><button class="btn" id="assignment' + name + '" onclick="return ajaxFileUpload(this);">Upload</button></form>')
+			//bug is file upload box id
+
 
 				console.log(info[0])
 				console.log(name)
@@ -122,8 +127,11 @@ function getFeedback(obj) {
 }
 
 function getResource(obj) {
-
 	$.download('moodle/api.php','action=getresource&id=' + obj.id, "GET");
+    console.log("This function's caller was " + obj.id);
+}
+
+function doUpload(obj) {
 
     console.log("This function's caller was " + obj.id);
    
@@ -144,3 +152,55 @@ function removeall(){
 		}
 	}
 }
+
+ function ajaxFileUpload()
+    {
+        //starting setting some animation when the ajax starts and completes
+        $("#loading")
+        .ajaxStart(function(){
+            $(this).show();
+        })
+        .ajaxComplete(function(){
+            $(this).hide();
+        });
+        
+        /*
+            prepareing ajax file upload
+            url: the url of script file handling the uploaded files
+                        fileElementId: the file type of input element id and it will be the index of  $_FILES Array()
+            dataType: it support json, xml
+            secureuri:use secure protocol
+            success: call back function when the ajax complete
+            error: callback function when the ajax failed
+            
+                */
+        $.ajaxFileUpload
+        (
+            {
+                url:'upload.php', 
+                secureuri:false,
+                fileElementId:'fileToUpload',
+                dataType: 'json',
+                success: function (data, status)
+                {
+                    if(typeof(data.error) != 'undefined')
+                    {
+                        if(data.error != '')
+                        {
+                            alert(data.error);
+                        }else
+                        {
+                            console.log(data.msg);
+                        }
+                    }
+                },
+                error: function (data, status, e)
+                {
+                    alert(e);
+                }
+            }
+        )
+        
+        return false;
+
+    }
